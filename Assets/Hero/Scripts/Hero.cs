@@ -11,8 +11,8 @@ public class Hero : Entity
 	[SerializeField] private float jumpForce;
 	[SerializeField] private float hp; 
 			
-	private float speedX;
-	private float speedY;
+	private float naprX;
+	private float naprY;
 	private int damage1 = 5;	
 	private float FullHP;
 	private bool isGround = false;	
@@ -66,8 +66,8 @@ public class Hero : Entity
 	
 	private void Run()
 	{
-		speedX = Input.GetAxis("Horizontal");
-		Vector3 dir = transform.right*speedX;
+		naprX = Input.GetAxis("Horizontal");
+		Vector3 dir = transform.right*naprX;
 		transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed*Time.deltaTime);		
 		sprite.flipX = dir.x < 0.0f;		
 	}
@@ -128,17 +128,12 @@ public class Hero : Entity
 	}	
 
 
-	//Функции интрфейса
+	//Функции интерфейса
 
 	private void ReloadLevel()  //Respawn
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);				
 	}
-
-	// private void OnGUI() //Временный HP Bar
-	// {
-	// 	GUI.Box(new Rect (0,0,100,30), "HP = " + hp);
-	// }
 
 	private void OnDrawGizmosSelected() //Сфера для радиуса атаки
 	{
