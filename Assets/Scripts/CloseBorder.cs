@@ -8,8 +8,8 @@ public class CloseBorder : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D FinishBorder)
 	{
-		if (FinishBorder.transform.tag == "Player")ReloadLevel();
-		if (FinishBorder.transform.tag == "Enemy")ReloadLevel();		
+		if (FinishBorder.transform.tag == "Player") ReloadLevel();
+		if (FinishBorder.transform.tag == "Enemy") ReloadLevel();		
 	}
 	
     private void ReloadLevel()
