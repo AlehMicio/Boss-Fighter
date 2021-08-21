@@ -15,11 +15,11 @@ C:/Unity/Project/Boss Fighter
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54714
+55876
 Successfully changed project path to: C:/Unity/Project/Boss Fighter
 C:/Unity/Project/Boss Fighter
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 61.28 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 59.08 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.15f2 (6cf78cb77498)
 [Subsystems] Discovering subsystems at path C:/Unity/2020.3.15f2/Editor/Data/Resources/UnitySubsystems
@@ -35,37 +35,37 @@ Initialize mono
 Mono path[0] = 'C:/Unity/2020.3.15f2/Editor/Data/Managed'
 Mono path[1] = 'C:/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56796
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56056
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Unity/2020.3.15f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001796 seconds.
+Registered in 0.001843 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 60.32 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 58.17 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.975 seconds
+- Completed reload, in  1.020 seconds
 Domain Reload Profiling:
-	ReloadAssembly (976ms)
-		BeginReloadAssembly (47ms)
+	ReloadAssembly (1020ms)
+		BeginReloadAssembly (48ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (378ms)
-			LoadAssemblies (45ms)
+		EndReloadAssembly (379ms)
+			LoadAssemblies (46ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (129ms)
+			SetupTypeCache (133ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (27ms)
-			SetupLoadedEditorAssemblies (167ms)
+			SetupLoadedEditorAssemblies (163ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (60ms)
-				BeforeProcessingInitializeOnLoad (6ms)
-				ProcessInitializeOnLoadAttributes (72ms)
+				RefreshPlugins (58ms)
+				BeforeProcessingInitializeOnLoad (5ms)
+				ProcessInitializeOnLoadAttributes (70ms)
 				ProcessInitializeOnLoadMethodAttributes (25ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -73,51 +73,51 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003604 seconds.
+Registered in 0.003832 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 59.84 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 57.06 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.056 seconds
+- Completed reload, in  1.060 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1056ms)
-		BeginReloadAssembly (132ms)
+	ReloadAssembly (1061ms)
+		BeginReloadAssembly (130ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (868ms)
-			LoadAssemblies (78ms)
+		EndReloadAssembly (872ms)
+			LoadAssemblies (80ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (251ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (43ms)
-			SetupLoadedEditorAssemblies (390ms)
+			SetupTypeCache (261ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (386ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (60ms)
-				BeforeProcessingInitializeOnLoad (61ms)
+				RefreshPlugins (57ms)
+				BeforeProcessingInitializeOnLoad (59ms)
 				ProcessInitializeOnLoadAttributes (249ms)
 				ProcessInitializeOnLoadMethodAttributes (11ms)
 				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2097 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2098 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 95.7 MB.
-System memory in use after: 95.6 MB.
+System memory in use after: 95.7 MB.
 
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 2533.
-Total: 2.394200 ms (FindLiveObjects: 0.214300 ms CreateObjectMapping: 0.052500 ms MarkObjects: 2.001800 ms  DeleteObjects: 0.124400 ms)
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 2534.
+Total: 2.502900 ms (FindLiveObjects: 0.225700 ms CreateObjectMapping: 0.051100 ms MarkObjects: 2.093600 ms  DeleteObjects: 0.131000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -131,73 +131,201 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: ProjectSettings/TagManager.asset
-  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f49dd93f4a9a262c82f921e40de69d2') in 0.023823 seconds 
-  Import took 0.027329 seconds .
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_013.png
+  artifactKey: Guid(3259abc390f3ea446b26a8b23866d9a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_013.png using Guid(3259abc390f3ea446b26a8b23866d9a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34238e3002a1c7aa37cd06314a927c0d') in 0.079696 seconds 
+  Import took 0.083015 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.948546 seconds.
-  path: ProjectSettings/TagManager.asset
-  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aaea19425ad6bb2f0cbe49577121966a') in 0.004711 seconds 
-  Import took 0.008060 seconds .
+  Time since last request: 0.000200 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_012.png
+  artifactKey: Guid(8f4872b5b57279342a8e275def3c545b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_012.png using Guid(8f4872b5b57279342a8e275def3c545b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fee48e110bcfbfd90701b1f2af355ca5') in 0.011793 seconds 
+  Import took 0.015202 seconds .
 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003637 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.73 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.933 seconds
-Domain Reload Profiling:
-	ReloadAssembly (934ms)
-		BeginReloadAssembly (105ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (32ms)
-		EndReloadAssembly (771ms)
-			LoadAssemblies (77ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (251ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (38ms)
-			SetupLoadedEditorAssemblies (312ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (52ms)
-				ProcessInitializeOnLoadAttributes (245ms)
-				ProcessInitializeOnLoadMethodAttributes (5ms)
-				AfterProcessingInitializeOnLoad (5ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2092 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 95.6 MB.
-System memory in use after: 95.6 MB.
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_009.png
+  artifactKey: Guid(650b8a495ff5e12498f63972ca247578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_009.png using Guid(650b8a495ff5e12498f63972ca247578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc7e6caae6b90a9ade7fd058975d40b3') in 0.010328 seconds 
+  Import took 0.013860 seconds .
 
-Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 2537.
-Total: 2.666900 ms (FindLiveObjects: 0.221400 ms CreateObjectMapping: 0.060300 ms MarkObjects: 2.277100 ms  DeleteObjects: 0.107000 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_017.png
+  artifactKey: Guid(209e97db9cbf22c4ba8e3d8f462f7dc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_017.png using Guid(209e97db9cbf22c4ba8e3d8f462f7dc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '798366b44f30a91c7973fce61f442f24') in 0.013920 seconds 
+  Import took 0.017188 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle
+  artifactKey: Guid(2e93b1dde389bb24aa85ad0605e3f9b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle using Guid(2e93b1dde389bb24aa85ad0605e3f9b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2172dde88ccdb076513823816ffbf285') in 0.001857 seconds 
+  Import took 0.005390 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000318 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_000.png
+  artifactKey: Guid(f602ed343127a554889037ca4a4ef285) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_000.png using Guid(f602ed343127a554889037ca4a4ef285) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b255c519b7c41ea110960b09f3ead86') in 0.015113 seconds 
+  Import took 0.018646 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_001.png
+  artifactKey: Guid(16a51e661fdf77d438c4ef5cd5cbf85d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_001.png using Guid(16a51e661fdf77d438c4ef5cd5cbf85d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ff1b84cb49bb35015b3b1db6f80197d') in 0.012658 seconds 
+  Import took 0.016008 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_006.png
+  artifactKey: Guid(cf3ce8d2b26ad434e833066970d7c296) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_006.png using Guid(cf3ce8d2b26ad434e833066970d7c296) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '276e1efdef00cbda87c320d1776d37fd') in 0.012669 seconds 
+  Import took 0.016397 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_003.png
+  artifactKey: Guid(f4143552956e8cb43af580ef0fa9eeb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_003.png using Guid(f4143552956e8cb43af580ef0fa9eeb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70b0de84fb52047e0e5a4b6365520185') in 0.011191 seconds 
+  Import took 0.014961 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_002.png
+  artifactKey: Guid(4cbd2fcea9c69e94f970bb741fe1a8e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_002.png using Guid(4cbd2fcea9c69e94f970bb741fe1a8e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '396b18f534b9e86a0b1affeaca97f31b') in 0.015764 seconds 
+  Import took 0.018915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_005.png
+  artifactKey: Guid(4c25c51b392d34244a1136f42972cf3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_005.png using Guid(4c25c51b392d34244a1136f42972cf3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dfaad5e315e9e1ed545ca62c3e6ce87') in 0.014244 seconds 
+  Import took 0.017284 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_007.png
+  artifactKey: Guid(9407b8822de0bf24cb58e591d88164cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_007.png using Guid(9407b8822de0bf24cb58e591d88164cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dca2166d2acfc5a7e6f93c0533d88658') in 0.011133 seconds 
+  Import took 0.014198 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000290 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_008.png
+  artifactKey: Guid(2ff6d101df422da45b41c095c657a6e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_008.png using Guid(2ff6d101df422da45b41c095c657a6e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cd9f6d00a464114a1e5b62c29ea74dd') in 0.012638 seconds 
+  Import took 0.016053 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_011.png
+  artifactKey: Guid(17356a7abbddfc44f843ec6220aa8f58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_011.png using Guid(17356a7abbddfc44f843ec6220aa8f58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44c742bfac4425f8d0af2b59994fc876') in 0.011838 seconds 
+  Import took 0.015109 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_004.png
+  artifactKey: Guid(08710828bb6d380489a69114ee514361) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_004.png using Guid(08710828bb6d380489a69114ee514361) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af9ff6da99b381bb7e70daa5039ba5c7') in 0.010219 seconds 
+  Import took 0.013964 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000243 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_010.png
+  artifactKey: Guid(d6afdd724fce2fc42b30cb118c169bd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_010.png using Guid(d6afdd724fce2fc42b30cb118c169bd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01a460231556a7b22ee3193bb5a20066') in 0.012460 seconds 
+  Import took 0.016184 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000251 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_015.png
+  artifactKey: Guid(d2d421410e3ad834eadaca0cc9a06f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_015.png using Guid(d2d421410e3ad834eadaca0cc9a06f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6b5e52e35cf7051973b50ba75773c41') in 0.012956 seconds 
+  Import took 0.016520 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_014.png
+  artifactKey: Guid(2816e96d02221264eba3b13cd39fd819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_014.png using Guid(2816e96d02221264eba3b13cd39fd819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67938a47be681d9d168169c1c2aafe5f') in 0.012471 seconds 
+  Import took 0.016140 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_016.png
+  artifactKey: Guid(1a5eab2a8c1a4ed4a97b84f6a3878aa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/0_Golem_Idle_016.png using Guid(1a5eab2a8c1a4ed4a97b84f6a3878aa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76e990164e828046893333d3497dab05') in 0.013031 seconds 
+  Import took 0.016038 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 79.817773 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/Fire_Golem.controller
+  artifactKey: Guid(241f694e1600ef347b4cf139b7907bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/Fire_Golem.controller using Guid(241f694e1600ef347b4cf139b7907bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efebab341f0ac0194b32df2f30da9b17') in 0.005212 seconds 
+  Import took 0.009038 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.289235 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/Idle.anim
+  artifactKey: Guid(bec3e774f6432274cae56b54524a1c4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/Idle.anim using Guid(bec3e774f6432274cae56b54524a1c4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eee2824c5a5de940a574c41989230989') in 0.003550 seconds 
+  Import took 0.007023 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000531 seconds.
+  path: Assets/Enemy/Animation/Golem Fire/Animations/Idle/Idle.anim
+  artifactKey: Guid(bec3e774f6432274cae56b54524a1c4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemy/Animation/Golem Fire/Animations/Idle/Idle.anim using Guid(bec3e774f6432274cae56b54524a1c4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eee2824c5a5de940a574c41989230989') in 0.002124 seconds 
+  Import took 0.005417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 63.632744 seconds.
+  path: Assets/Scenes/Level 2.unity
+  artifactKey: Guid(ea4f6fdc18134204aa90489a56404331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Level 2.unity using Guid(ea4f6fdc18134204aa90489a56404331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dec0ca697efb61bc95ddc0bb13badc9') in 0.002217 seconds 
+  Import took 0.005673 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.206821 seconds.
+  path: Assets/Scenes/Boss Layer.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Boss Layer.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9493fa83e33a96f6d652d2feace7631b') in 0.002255 seconds 
+  Import took 0.005829 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 50.095159 seconds.
+  path: Assets/Scenes/Level 1.unity
+  artifactKey: Guid(ea3356bcb5ddfe44fa0109119000ad75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Level 1.unity using Guid(ea3356bcb5ddfe44fa0109119000ad75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbebfbbc05f86316417e3840de46ad99') in 0.002145 seconds 
+  Import took 0.005675 seconds .
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
