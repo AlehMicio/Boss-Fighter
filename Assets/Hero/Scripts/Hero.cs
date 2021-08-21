@@ -11,15 +11,14 @@ public class Hero : Entity
 	[SerializeField] private float jumpForce;
 	[SerializeField] private float hp;		
 			
-	private float naprX;
-	private float naprY;
+	private float naprX;	
 	private int damage1 = 5;	
 	private float FullHP;
 	private float RayDistToGround = 1f;
 	
-	private bool isGround;	
-	private bool NotDie = true;	
+	private bool isGround;
 	private bool isSit;	
+	private bool NotDie = true;			
 	private bool cd; //CoolDown
 
 	[SerializeField] private Transform AttackPoint;
@@ -50,17 +49,18 @@ public class Hero : Entity
 	
 	private void FixedUpdate()
 	{
-		CheckGround();
-		if (hp <= 0) WhenDie();
-		Pb.BarValue = hp*(100/FullHP); //Корректровка HP Bar		
+		CheckGround();				
 	}
 	
 	private void Update()
 	{
+		if (hp <= 0) WhenDie();
+		Pb.BarValue = hp*(100/FullHP); //Корректровка HP Bar
+		
 		//Движение:
-		if (NotDie && Input.GetButton("Horizontal")) Run();		  
+		if (NotDie && !isSit && Input.GetButton("Horizontal")) Run();		  
 		if (NotDie && isGround && Input.GetButtonDown("Jump")) Jump();
-		if (NotDie && isGround && Input.GetKey(KeyCode.S)) Sit();
+		if (NotDie && isGround && Input.GetKey(KeyCode.S)) {Sit(); isSit = true;} else isSit = false;
 		if (NotDie && Input.GetButtonDown("Fire1")) Attack();		
 
 		//Анимация:		
