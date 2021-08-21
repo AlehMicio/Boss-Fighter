@@ -9,21 +9,26 @@ public class Hero : Entity
 		
 	[SerializeField] private float speed;
 	[SerializeField] private float jumpForce;
-	[SerializeField] private float hp; 
+	[SerializeField] private float hp;		
 			
 	private float naprX;
 	private float naprY;
 	private int damage1 = 5;	
 	private float FullHP;
-	private bool isGround = false;	
-	private bool NotDie = true;
+	private float RayDistToGround = 1f;
+	
+	private bool isGround;	
+	private bool NotDie = true;	
+	private bool isSit;	
 	private bool cd; //CoolDown
 
 	[SerializeField] private Transform AttackPoint;
 	[SerializeField] private float AttackRange;
-	[SerializeField] private LayerMask enemy;	
+	[SerializeField] private LayerMask EnemyLayer;
+	[SerializeField] private LayerMask GroundLayer;		
 	
 	private Rigidbody2D rb;
+	private RaycastHit2D isCheckGround;	
 	private SpriteRenderer sprite;
 	private Animator anim;
 	public ProgressBar Pb;
@@ -47,19 +52,21 @@ public class Hero : Entity
 	{
 		CheckGround();
 		if (hp <= 0) WhenDie();
-		Pb.BarValue = hp*(100/FullHP); //Корректровка HP Bar	
-
-		if (NotDie && isGround && Input.GetButton("Horizontal")) anim.SetBool("isRun", true); else anim.SetBool("isRun", false);
-		if (NotDie && !isGround) anim.SetBool("isJump", true); else anim.SetBool("isJump", false);
-		if (NotDie && isGround && Input.GetKey(KeyCode.S)) anim.SetBool("isSit", true); else anim.SetBool("isSit", false);
+		Pb.BarValue = hp*(100/FullHP); //Корректровка HP Bar		
 	}
 	
 	private void Update()
 	{
+		//Движение:
 		if (NotDie && Input.GetButton("Horizontal")) Run();		  
 		if (NotDie && isGround && Input.GetButtonDown("Jump")) Jump();
 		if (NotDie && isGround && Input.GetKey(KeyCode.S)) Sit();
-		if (NotDie && Input.GetButtonDown("Fire1")) Attack(); 	 						
+		if (NotDie && Input.GetButtonDown("Fire1")) Attack();		
+
+		//Анимация:		
+		if (NotDie && isGround && Input.GetButton("Horizontal")) anim.SetBool("isRun", true); else anim.SetBool("isRun", false);
+		if (NotDie && !isGround) anim.SetBool("isJump", true); else anim.SetBool("isJump", false);
+		if (NotDie && isGround && Input.GetKey(KeyCode.S)) anim.SetBool("isSit", true); else anim.SetBool("isSit", false);					
 	}
 	
 	//Основные функции
@@ -69,7 +76,7 @@ public class Hero : Entity
 		naprX = Input.GetAxis("Horizontal");
 		Vector3 dir = transform.right*naprX;
 		transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed*Time.deltaTime);		
-		sprite.flipX = dir.x < 0.0f;		
+		sprite.flipX = dir.x < 0.0f;
 	}
 	
 	private void Jump()
@@ -87,7 +94,7 @@ public class Hero : Entity
 		anim.SetTrigger("isAttack");
 		if (isGround && cd)
 		{
-			Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, enemy);
+			Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayer);
 			for (int i = 0; i<enemies.Length; i++)
 			{
 				enemies[i].GetComponent<Enemy>().GetDamage1(damage1);
@@ -110,8 +117,8 @@ public class Hero : Entity
 
 	private void CheckGround()
 	{
-		Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 1f);		
-		isGround = collider.Length > 1;				
+		isCheckGround = Physics2D.Raycast(transform.position, -Vector2.up, RayDistToGround, GroundLayer);					
+		isGround = isCheckGround;						
 	}
 	
 	public override void GetDamage()
@@ -138,7 +145,7 @@ public class Hero : Entity
 	private void OnDrawGizmosSelected() //Сфера для радиуса атаки
 	{
 		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
+		Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);	
 	}
 	
 }
