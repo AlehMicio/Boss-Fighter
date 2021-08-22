@@ -12,14 +12,16 @@ public class Hero : Entity
 	[SerializeField] private float hp;		
 			
 	private float naprX;	
-	private int damageHero = 5;	
+	private int damageHero1 = 5;
+	private int damageHero2 = 15;	
 	private float FullHP;
 	private float RayDistToGround = 1f;
 	
 	private bool isGround;
 	private bool isSit;	
 	private bool NotDie = true;			
-	private bool cd; //CoolDown
+	private bool cd1; //CoolDown
+	private bool cd2;
 
 	[SerializeField] private Transform AttackPoint;
 	[SerializeField] private float AttackRange;
@@ -43,7 +45,8 @@ public class Hero : Entity
 		sprite = GetComponentInChildren<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 
-		cd = true;
+		cd1 = false;
+		cd2 = false;
 		FullHP = hp;											
 	}
 	
@@ -61,7 +64,8 @@ public class Hero : Entity
 		if (NotDie && !isSit && Input.GetButton("Horizontal")) Run();		  
 		if (NotDie && isGround && Input.GetButtonDown("Jump")) Jump();
 		if (NotDie && isGround && Input.GetKey(KeyCode.S)) {Sit(); isSit = true;} else isSit = false;
-		if (NotDie && Input.GetButtonDown("Fire1")) Attack();		
+		if (NotDie && !cd1 && Input.GetButtonDown("Fire1")) Attack1();
+		if (NotDie && !cd2 && Input.GetButtonDown("Fire2")) Attack2();		
 
 		//Анимация:		
 		if (NotDie && isGround && Input.GetButton("Horizontal")) anim.SetBool("isRun", true); else anim.SetBool("isRun", false);
@@ -89,29 +93,45 @@ public class Hero : Entity
 		
 	}
 
-	private void Attack()
+	private void Attack1()
 	{
-		anim.SetTrigger("isAttack");
-		if (isGround && cd)
+		anim.SetTrigger("isAttack1");
+		
+		Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayer);
+		for (int i = 0; i<enemies.Length; i++)
 		{
-			Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayer);
-			for (int i = 0; i<enemies.Length; i++)
-			{
-				enemies[i].GetComponent<FireGolem>().GetDamage(damageHero);
-			}	
+			enemies[i].GetComponent<Enemy>().GetDamage(damageHero1);
+		}	
 
-			cd = false;			
-		 	StartCoroutine(AttackCoolDown());
-		}
-
+		cd1 = true;			
+		 StartCoroutine(AttackCoolDown1());
 	}
 
-	private  IEnumerator AttackCoolDown()
+	private void Attack2()
+	{
+		anim.SetTrigger("isAttack2");
+		
+		Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayer);
+		for (int i = 0; i<enemies.Length; i++)
+		{
+			enemies[i].GetComponent<Enemy>().GetDamage(damageHero2);
+		}	
+
+		cd2 = true;			
+		 StartCoroutine(AttackCoolDown2());
+	}
+
+	private  IEnumerator AttackCoolDown1()
 	{
 		yield return new WaitForSeconds(0.5f);
-		cd = true;
+		cd1 = false;
 	}
 
+	private  IEnumerator AttackCoolDown2()
+	{
+		yield return new WaitForSeconds(3f);
+		cd2 = false;
+	}
 
 	//Вспомогательные функции
 
@@ -121,9 +141,9 @@ public class Hero : Entity
 		isGround = isCheckGround;						
 	}
 	
-	public void GetDamage(int damageFireGolem)
+	public void GetDamage(int damageEnemy)
 	{
-		hp -= damageFireGolem;					
+		hp -= damageEnemy;					
 	}		
 	
 	private void WhenDie()

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public virtual void Die()
+    // public int Damage(int damage)
+    // {
+    //     return damage;
+    // }
+
+    public void Die()
     {
         this.gameObject.SetActive(false);
     }
