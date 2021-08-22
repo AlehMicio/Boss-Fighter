@@ -12,7 +12,7 @@ public class Hero : Entity
 	[SerializeField] private float hp;		
 			
 	private float naprX;	
-	private int damage1 = 5;	
+	private int damageHero = 5;	
 	private float FullHP;
 	private float RayDistToGround = 1f;
 	
@@ -97,7 +97,7 @@ public class Hero : Entity
 			Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayer);
 			for (int i = 0; i<enemies.Length; i++)
 			{
-				enemies[i].GetComponent<Enemy>().GetDamage1(damage1);
+				enemies[i].GetComponent<FireGolem>().GetDamage(damageHero);
 			}	
 
 			cd = false;			
@@ -121,9 +121,9 @@ public class Hero : Entity
 		isGround = isCheckGround;						
 	}
 	
-	public override void GetDamage()
+	public void GetDamage(int damageFireGolem)
 	{
-		hp -= 1;					
+		hp -= damageFireGolem;					
 	}		
 	
 	private void WhenDie()
