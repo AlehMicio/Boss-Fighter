@@ -100,7 +100,7 @@ public class Hero : Entity
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayer);
 		for (int i = 0; i<enemies.Length; i++)
 		{
-			enemies[i].GetComponent<Enemy>().GetDamage(damageHero1);
+			enemies[i].GetComponent<Entity>().Damage(damageHero1);
 		}	
 
 		cd1 = true;			
@@ -114,7 +114,7 @@ public class Hero : Entity
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayer);
 		for (int i = 0; i<enemies.Length; i++)
 		{
-			enemies[i].GetComponent<Enemy>().GetDamage(damageHero2);
+			enemies[i].GetComponent<Entity>().Damage(damageHero2);
 		}	
 
 		cd2 = true;			

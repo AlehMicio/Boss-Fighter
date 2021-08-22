@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    // public int Damage(int damage)
-    // {
-    //     return damage;
-    // }
+    public virtual void Damage(int damage)
+    {
+       
+    }
 
     public void Die()
     {
