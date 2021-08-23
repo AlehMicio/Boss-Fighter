@@ -6,20 +6,19 @@ using UnityEngine.UI;
 public class FireGolem: Entity
 {
     [SerializeField] private int hp;
-	[SerializeField] private float speed;	
+	//[SerializeField] private GameObject Prefab;	 	
 	[SerializeField] private Transform point;	
 	[SerializeField] private LayerMask PlayerLayer;
 	[SerializeField] private LayerMask GroundLayer;
-	[SerializeField] public Text txt;
+	[SerializeField] public Text txt;		
 	
-	private float speed1 = 5;
+	private float speed;
 	private int damageFireGolem = 1;	
 	private float agrDist = 5;
-	private float attackRange = 1;
+	private float attackRange = 1.5f;
 	private float jumpForce = 0.2f;
 	private float RayDistToGround = 1.5f;	
-	private float FullHP;
-	//private int damage;
+	private float FullHP;	
 	private Transform player;		
 
 	private bool NotDie = true;
@@ -32,7 +31,8 @@ public class FireGolem: Entity
 	private bool isWallL;
 	private bool idle = true;
 	private bool agr = false;
-	private bool back = false;		
+	private bool back = false;
+	private bool attack = false;		
 
 	private Rigidbody2D rb;
 	private SpriteRenderer sprite;
@@ -58,29 +58,31 @@ public class FireGolem: Entity
 	private void FixedUpdate()
 	{
 		CheckPlayer();
-		CheckGround();			
+		CheckGround();
+
+		if (hp <= 0 && NotDie) WhenDie();
+		Pb.BarValue = hp*(100/FullHP); 			
 	}
 	
 	private void Update()
 	{
-		if (hp <= 0) WhenDie();
-		Pb.BarValue = hp*(100/FullHP);   
-
-		if (NotDie && !canAttack && Vector2.Distance(transform.position, point.position) < 1) {idle = true; agr = false; back = false;}		
-		if (NotDie && !canAttack && Vector2.Distance(transform.position, player.position) < agrDist) {agr = true; idle = false; back = false;}
-		if (NotDie && !canAttack && idle == false && Vector2.Distance(transform.position, player.position) > agrDist) {back = true; agr = false; idle = false;}
-		if (NotDie && !cd && canAttack) {Attack(); agr = false; back = false;}
+		if (NotDie && !canAttack && agr == false && Vector2.Distance(transform.position, point.position) < 1) idle = true; 		
+		if (NotDie && !canAttack && Vector2.Distance(transform.position, player.position) < agrDist) {agr = true; idle = false; back = false;} 
+		if (NotDie && !canAttack && idle == false && Vector2.Distance(transform.position, player.position) > agrDist) {back = true; agr = false; idle = false; attack = false;}
+		if (NotDie && !cd && canAttack) {attack = true; idle = false; agr = false;}
 		if (NotDie && isWall) Jump();				
 
-		if (idle == true) Idle();		  
-		 else if (agr == true) Agr();		  
-		  else if (back == true) GoBack(); 	
+		if (idle == true) Idle();
+		 else if (attack == true) {Attack(); attack = false; }		  
+		  else if (agr == true) {Agr(); agr = false;}		  
+		   else if (back == true) {GoBack(); back = false;}	
 	}
 
 	//Основные функции
 			
 	private void Idle()
 	{
+		speed = 0;
 		anim.SetBool("isWalk", false);
 		anim.SetBool("isRun", false);		
 		sprite.flipX = true;
@@ -89,14 +91,16 @@ public class FireGolem: Entity
 
 	private void Agr()
 	{
+		speed = 4;		
 		anim.SetBool("isRun", true);
 		txt.text = "Ща захуярю";				
-		transform.position = Vector2.MoveTowards(transform.position, player.position, speed1*Time.deltaTime);
-		if (transform.position.x > player.position.x) sprite.flipX = true; else sprite.flipX = false;
+		transform.position = Vector2.MoveTowards(transform.position, player.position, speed*Time.deltaTime);
+		if (transform.position.x > player.position.x) sprite.flipX = true; else sprite.flipX = false;		
 	}
 
 	private void GoBack()
 	{
+		speed = 4;
 		anim.SetBool("isWalk", true);
 		txt.text = "На базу";
 		transform.position = Vector2.MoveTowards(transform.position, point.position, speed*Time.deltaTime);
@@ -110,14 +114,15 @@ public class FireGolem: Entity
 
 	private void Attack()
 	{
-		anim.SetTrigger("isAttack");				
+		anim.SetTrigger("isAttack");
+		txt.text = "Атакую!";				
 		cd = true;			
-		StartCoroutine(AttackCoolDown());
-		
+		StartCoroutine(AttackCoolDown());		
 	}
 
 	private void OnAttack()
 	{
+		speed = 0;
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
 		for (int i = 0; i<enemies.Length; i++)
 		{
@@ -157,10 +162,18 @@ public class FireGolem: Entity
 
 	private void WhenDie()
 	{
-		anim.SetTrigger("isDie");
 		NotDie = false;
+		txt.text = "";
+		anim.SetTrigger("isDie");		
 		Invoke("Die",5);
+		//Invoke("Respawn",3);		
+		
 	}
+
+	private void Respawn ()
+   {
+       //Instantiate(Prefab, point.position, Quaternion.identity);
+   }
 
 	private void OnDrawGizmosSelected() //Сфера для радиуса атаки
 	{
