@@ -11,6 +11,6 @@ public class Entity : MonoBehaviour
 
     public void Die()
     {
-        this.gameObject.SetActive(false);        
-    }
+        this.gameObject.SetActive(false);                
+    }   
 }

@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class CloseBorder : MonoBehaviour
 {
-
-	private void OnCollisionEnter2D(Collision2D FinishBorder)
+	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (FinishBorder.transform.tag == "Player") ReloadLevel();				
-	}
+		if (other.gameObject.tag == "Player") ReloadLevel();
+	}	
+    
 	
-    private void ReloadLevel()
+	private void ReloadLevel()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);				
 		

@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class Hero : Entity
 {	
-		
+	[SerializeField] private float hp;	
 	[SerializeField] private float speed;
-	[SerializeField] private float jumpForce;
-	[SerializeField] private float hp;		
+	[SerializeField] private float jumpForce;			
 			
 	private float naprX;	
 	private int damageHero1 = 5;
@@ -32,6 +31,7 @@ public class Hero : Entity
 	private RaycastHit2D isCheckGround;	
 	private SpriteRenderer sprite;
 	private Animator anim;
+	public Transform CheckPoint;
 	public ProgressBar Pb;
 	
 	public static Hero Instance {get; set;}
@@ -52,7 +52,7 @@ public class Hero : Entity
 	
 	private void FixedUpdate()
 	{
-		CheckGround();				
+		CheckGround();						
 	}
 	
 	private void Update()
@@ -150,14 +150,23 @@ public class Hero : Entity
 	{
 		anim.SetTrigger("isDie");
 		NotDie = false;
-		Invoke("Die",3);
-		Invoke("ReloadLevel",3);
+		Invoke("Die", 3);
+		//Invoke("ReloadLevel",3);
+		Invoke("Respawn", 3.1f);		
 	}	
+
+	private void Respawn()
+   {
+        this.gameObject.SetActive(true);		
+		hp = FullHP;		
+		transform.position = CheckPoint.position;						
+		NotDie = true;
+   }
 
 
 	//Функции интерфейса
 
-	private void ReloadLevel()  //Respawn
+	private void ReloadLevel()  
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);				
 	}
@@ -166,8 +175,13 @@ public class Hero : Entity
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);	
+	}	
+
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "Border") {Die(); Invoke("Respawn", 3.1f);}
 	}
-	
+		
 }
 
 			

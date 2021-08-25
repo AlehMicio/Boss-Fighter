@@ -7,7 +7,7 @@ public class NextLvL : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D Next)
 	{
-		if (Next.transform.tag == "Player") NextLevel();				
+		if (Next.gameObject.tag == "Player") NextLevel();				
 	}
 	
     private void NextLevel()
