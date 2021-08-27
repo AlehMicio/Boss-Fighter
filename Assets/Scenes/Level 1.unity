@@ -13481,7 +13481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ee773dfb472384daf54cebfde922aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 15
   point: {fileID: 1083976598}
   PlayerLayer:
     serializedVersion: 2
@@ -20298,6 +20298,10 @@ PrefabInstance:
       propertyPath: Pb
       value: 
       objectReference: {fileID: 650191408}
+    - target: {fileID: 3088796915963127725, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
+      propertyPath: hp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127725, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: CheckPoint
       value: 

@@ -11,8 +11,8 @@ public class Hero : Entity
 	[SerializeField] private float jumpForce;			
 			
 	private float naprX;	
-	private int damageHero1 = 5;
-	private int damageHero2 = 15;	
+	private int damageHero1 = 1;
+	private int damageHero2 = 3;	
 	private float FullHP;
 	private float RayDistToGround = 1f;
 	
@@ -33,6 +33,7 @@ public class Hero : Entity
 	private Animator anim;
 	public Transform CheckPoint;
 	public ProgressBar Pb;
+	private Transform enemy;
 	
 	public static Hero Instance {get; set;}
 	
@@ -44,6 +45,7 @@ public class Hero : Entity
 		rb = GetComponent<Rigidbody2D>();
 		sprite = GetComponentInChildren<SpriteRenderer>();
 		anim = GetComponent<Animator>();
+		enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
 
 		cd1 = false;
 		cd2 = false;
@@ -162,6 +164,14 @@ public class Hero : Entity
 		transform.position = CheckPoint.position;						
 		NotDie = true;
    }
+
+   public void Otdacha(int damageEnemy)
+	{
+		if (enemy.position.x > transform.position.x) rb.AddForce(-transform.right*50, ForceMode2D.Impulse);
+		else rb.AddForce(transform.right*50, ForceMode2D.Impulse);
+		hp -= damageEnemy;		
+	}
+	
 
 
 	//Функции интерфейса

@@ -12,11 +12,13 @@ public class FireGolem: Entity
 	[SerializeField] public Text txt;						
 
 	private float speed;
-	private int damageFireGolem = 1;	
+	private int damageFireGolem1 = 2;
+	private int damageFireGolem2 = 15;	
 	private float agrDist = 5;
 	private float attackRange = 1.5f;
 	private float jumpForce = 0.2f;
-	private float RayDistToGround = 1.5f;	
+	private float RayDistToGround = 1.5f;
+	private int cdKick;	
 	private int FullHP;	
 	private Transform player;		
 
@@ -52,6 +54,7 @@ public class FireGolem: Entity
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		FullHP = hp;
 		cd = false;
+		cdKick = 3;
 	}
 	
 	private void FixedUpdate()
@@ -120,10 +123,27 @@ public class FireGolem: Entity
 
 	private void Attack()
 	{
-		anim.SetTrigger("isAttack");
-		txt.text = "Атакую!";				
-		cd = true;			
-		StartCoroutine(AttackCoolDown());		
+		if (cdKick <= 0)
+		{
+			anim.SetTrigger("isKick");
+			txt.text = "Пинаю!";
+			speed = 0;
+			Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
+			for (int i = 0; i<enemies.Length; i++)
+			{
+				enemies[i].GetComponent<Hero>().Otdacha(damageFireGolem2); //Hero - a name of script;
+			}
+			//player.GetComponent<Hero>().Otdacha();
+			cdKick = 3;
+		}
+		else
+		{
+			cdKick -= 1;
+			anim.SetTrigger("isAttack");
+			txt.text = "Атакую!";				
+			cd = true;			
+			StartCoroutine(AttackCoolDown());
+		}		
 	}
 
 	private void OnAttack()
@@ -132,7 +152,7 @@ public class FireGolem: Entity
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
 		for (int i = 0; i<enemies.Length; i++)
 		{
-			enemies[i].GetComponent<Hero>().GetDamage(damageFireGolem); //Hero - a name of script;
+			enemies[i].GetComponent<Hero>().GetDamage(damageFireGolem1); //Hero - a name of script;
 		}
 	}
 
@@ -140,7 +160,7 @@ public class FireGolem: Entity
 	{
 		yield return new WaitForSeconds(1f);
 		cd = false;
-	}
+	}	
 
 	//Вспомогательные функции
 
