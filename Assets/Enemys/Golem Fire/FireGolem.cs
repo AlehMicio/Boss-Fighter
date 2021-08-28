@@ -12,8 +12,8 @@ public class FireGolem: Entity
 	[SerializeField] public Text txt;						
 
 	private float speed;
-	private int damageFireGolem1 = 2;
-	private int damageFireGolem2 = 15;	
+	private float damageFireGolem1 = 2;
+	private float damageFireGolem2 = 15;	
 	private float agrDist = 5;
 	private float attackRange = 1.5f;
 	private float jumpForce = 0.2f;
@@ -22,8 +22,7 @@ public class FireGolem: Entity
 	private int FullHP;	
 	private Transform player;		
 
-	private bool NotDie = true;
-	//private bool moveRigth = true;
+	private bool NotDie = true;	
 	private bool cd;
 	private bool canAttack;
 	private bool isGround;
@@ -78,7 +77,7 @@ public class FireGolem: Entity
 		 else if (attack == true) {Attack(); attack = false; }		  
 		  else if (agr == true) {Agr(); agr = false;}		  
 		   else if (back == true)
-		     if (Vector2.Distance(transform.position, point.position) < 8)	{GoBack(); back = false;}
+		     if (Vector2.Distance(transform.position, point.position) < 15)	{GoBack(); back = false;}
 			  else
 			   {
 				   this.gameObject.SetActive(false);
@@ -124,7 +123,7 @@ public class FireGolem: Entity
 	private void Attack()
 	{
 		if (cdKick <= 0)
-		{
+		{			
 			anim.SetTrigger("isKick");
 			txt.text = "Пинаю!";
 			speed = 0;
@@ -132,9 +131,8 @@ public class FireGolem: Entity
 			for (int i = 0; i<enemies.Length; i++)
 			{
 				enemies[i].GetComponent<Hero>().Otdacha(damageFireGolem2); //Hero - a name of script;
-			}
-			//player.GetComponent<Hero>().Otdacha();
-			cdKick = 3;
+			}			
+			cdKick = 3;			
 		}
 		else
 		{
@@ -200,15 +198,10 @@ public class FireGolem: Entity
         this.gameObject.SetActive(true);		
 		hp = FullHP;
 		transform.position = point.position;
-		NotDie = true;				
+		NotDie = true;
+		cd = false;
+		cdKick = 3;					
    }
-
    
-	private void OnDrawGizmosSelected() //Сфера для радиуса атаки
-	{
-		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(transform.position, attackRange);	
-	}
-
 }
 

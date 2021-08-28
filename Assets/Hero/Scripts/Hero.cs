@@ -25,7 +25,7 @@ public class Hero : Entity
 	[SerializeField] private Transform AttackPoint;
 	[SerializeField] private float AttackRange;
 	[SerializeField] private LayerMask EnemyLayer;
-	[SerializeField] private LayerMask GroundLayer;		
+	[SerializeField] private LayerMask GroundLayer;			
 	
 	private Rigidbody2D rb;
 	private RaycastHit2D isCheckGround;	
@@ -143,7 +143,7 @@ public class Hero : Entity
 		isGround = isCheckGround;						
 	}
 	
-	public void GetDamage(int damageEnemy)
+	public void GetDamage(float damageEnemy)
 	{
 		hp -= damageEnemy;					
 	}		
@@ -165,10 +165,10 @@ public class Hero : Entity
 		NotDie = true;
    }
 
-   public void Otdacha(int damageEnemy)
+   public void Otdacha(float damageEnemy)
 	{
-		if (enemy.position.x > transform.position.x) rb.AddForce(-transform.right*50, ForceMode2D.Impulse);
-		else rb.AddForce(transform.right*50, ForceMode2D.Impulse);
+		if (enemy.position.x > transform.position.x) rb.AddForce(-transform.right*15, ForceMode2D.Impulse);
+		else rb.AddForce(transform.right*15, ForceMode2D.Impulse);
 		hp -= damageEnemy;		
 	}
 	
@@ -178,7 +178,7 @@ public class Hero : Entity
 
 	private void ReloadLevel()  
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);				
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);						
 	}
 
 	private void OnDrawGizmosSelected() //Сфера для радиуса атаки
