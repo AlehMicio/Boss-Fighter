@@ -7,7 +7,8 @@ public class EarthGolem: Entity
 {
     [SerializeField] private int hp;		 	
 	[SerializeField] private Transform point;
-	[SerializeField] private Transform RazgonPoint;	
+	[SerializeField] private Transform RazgonPoint;
+	[SerializeField] private PointForRazgon RP;
 	[SerializeField] private LayerMask PlayerLayer;
 	[SerializeField] private LayerMask GroundLayer;
 	[SerializeField] public Text txt;						
@@ -23,7 +24,7 @@ public class EarthGolem: Entity
 	private Transform player;
 			
 
-	private bool NotDie = true;	
+	[HideInInspector] public bool NotDie = true;	
 	private bool cd;
 	private bool canAttack;
 	private bool isGround;
@@ -34,7 +35,7 @@ public class EarthGolem: Entity
 	private bool agr = false;
 	private bool back = false;
 	private bool attack = false;
-	public bool razgon;		
+	[HideInInspector] public bool razgon;		
 
 	private Rigidbody2D rb;
 	private SpriteRenderer sprite;
@@ -50,7 +51,7 @@ public class EarthGolem: Entity
 	{
 		rb = GetComponent<Rigidbody2D>();
 		sprite = GetComponentInChildren<SpriteRenderer>();
-		anim = GetComponent<Animator>();		
+		anim = GetComponent<Animator>();				
 		
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		FullHP = hp;
@@ -68,12 +69,11 @@ public class EarthGolem: Entity
 		if (hp <= 0 && NotDie) WhenDie();
 		Pb.BarValue = hp*(100/FullHP);		
 
-		if (NotDie && !canAttack && agr == false && Vector2.Distance(transform.position, point.position) < 1) idle = true; 	//|| Vector2.Distance(transform.position, RazgonPoint.position) < 1	
+		if (NotDie && !canAttack && agr == false && Vector2.Distance(transform.position, point.position) < 1) idle = true; 		
 		if (NotDie && !canAttack && Vector2.Distance(transform.position, player.position) < agrDist) {agr = true; idle = false; back = false;} 
 		if (NotDie && !canAttack && agr == false && idle == false && Vector2.Distance(transform.position, player.position) > agrDist) {back = true; agr = false; idle = false; attack = false;}	
 		if (NotDie && !cd && canAttack) {attack = true; idle = false; agr = false;}
-		if (NotDie && isWall) Jump();
-		//if (NotDie && razgon) Razgon();
+		if (NotDie && isWall) Jump();		
 				
 		if (razgon == true)
 		{
@@ -87,8 +87,9 @@ public class EarthGolem: Entity
 		     if (Vector2.Distance(transform.position, point.position) < 20)	{GoBack(); back = false;}
 			  else
 			   {
-				   this.gameObject.SetActive(false);
+				   NotDie = false;
 				   back = false;
+				   Die();				   
 				   Invoke ("Respawn",3);				   
 			   }	
 	}
@@ -115,7 +116,7 @@ public class EarthGolem: Entity
 
 	private void GoBack()
 	{
-		speed = 4;
+		speed = 8;
 		anim.SetBool("isWalk", true);
 		txt.text = "На базу";
 		transform.position = Vector2.MoveTowards(transform.position, point.position, speed*Time.deltaTime);
@@ -141,7 +142,7 @@ public class EarthGolem: Entity
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
 		for (int i = 0; i<enemies.Length; i++)
 		{
-			enemies[i].GetComponent<Hero>().GetDamage(damageEarthGolem1); //Hero - a name of script;
+			enemies[i].GetComponent<Hero>().GetDamage(damageEarthGolem1); 
 		}
 	}
 
@@ -160,7 +161,7 @@ public class EarthGolem: Entity
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
 		for (int i = 0; i<enemies.Length; i++)
 		{
-			enemies[i].GetComponent<Hero>().Otdacha(damageEarthGolem2); //Hero - a name of script;
+			enemies[i].GetComponent<Hero>().Otdacha(damageEarthGolem2); 
 		}					
 	}	
 
@@ -204,7 +205,8 @@ public class EarthGolem: Entity
 		transform.position = point.position;
 		NotDie = true;
 		razgon = false;
-		cd = false;				
+		cd = false;
+		RP.GetComponent<PointForRazgon>().RespawnRazgonPoint();
    }
 
 }

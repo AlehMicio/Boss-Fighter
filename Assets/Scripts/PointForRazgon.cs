@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class PointForRazgon : Entity
 {
-    [SerializeField] private EarthGolem raz; 
+    [SerializeField] private EarthGolem Golem; 
    
     private void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.tag == "Player")
 		{
-			raz.GetComponent<EarthGolem>().razgon = true;
-			Debug.Log("Razgon!");			
-		}
-		Die();
-		Invoke("Respawn", 6);
+			Golem.GetComponent<EarthGolem>().razgon = true;
+			Die();									
+		}				
 	}
 
-	private void Respawn()
-   {
+	public void RespawnRazgonPoint()
+    {
         this.gameObject.SetActive(true);				
-   }
+    }
 }
