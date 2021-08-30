@@ -154,8 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pb: {fileID: 0}
   hp: 30
-  speed: 5
-  jumpForce: 7
   CheckPoint: {fileID: 0}
   FullHP: 0
   AttackPoint1: {fileID: 3088796917661129973}

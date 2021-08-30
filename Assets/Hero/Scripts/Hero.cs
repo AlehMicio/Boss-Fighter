@@ -8,19 +8,18 @@ public class Hero : Entity
 {	
 	public ProgressBar Pb;
 	public float hp;	
-	[SerializeField] private float speed;
-	[SerializeField] private float jumpForce;
 	public Transform CheckPoint;			
 			
 	private float naprX;	
 	private int damageHero1 = 1;
 	private int damageHero2 = 3;
-	private float AttackRange = 0.8f;	
+	private float AttackRange = 0.8f;
+	private float jumpForce = 7;
+	private float speed;	
 	[HideInInspector] public float FullHP;	
 	
 	private bool isGround;
-	private bool isRoof;
-	private bool isSit;	
+	private bool isRoof;	
 	private bool NotDie = true;			
 	private bool cd1; //CoolDown
 	private bool cd2;
@@ -79,7 +78,7 @@ public class Hero : Entity
 	
 	private void Run()
 	{
-		if (NotDie && !isSit && Input.GetButton("Horizontal"))
+		if (NotDie && Input.GetButton("Horizontal"))
 		{
 			naprX = Input.GetAxis("Horizontal");
 			Vector3 dir = transform.right*naprX;
@@ -103,14 +102,14 @@ public class Hero : Entity
 	{
 		if (NotDie && isGround && Input.GetKey(KeyCode.S))
 		{
-			isSit = true;
+			speed = 1;
 			anim.SetBool("isSit", true);
 			capsul.enabled = false;
 			circle.enabled = true; 
 		}
 		else 
 		{
-			isSit = false;
+			speed = 5;
 			anim.SetBool("isSit", false);
 			capsul.enabled = true;
 			circle.enabled = false;
@@ -150,6 +149,7 @@ public class Hero : Entity
 			anim.SetTrigger("isAttack2");		
 			if (sprite.flipX == false)		
 			{
+				//transform.position = Vector2.MoveTowards(transform.position, transform.position + 5, 10*Time.deltaTime);
 				Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint1.position, AttackRange, EnemyLayer);			 
 				for (int i = 0; i<enemies.Length; i++)
 				{
@@ -158,6 +158,7 @@ public class Hero : Entity
 			}
 			else
 			{
+				
 				Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint2.position, AttackRange, EnemyLayer);			 
 				for (int i = 0; i<enemies.Length; i++)
 				{
@@ -202,8 +203,8 @@ public class Hero : Entity
 
 	public void Otdacha(float damageEnemy)
 	{
-		if (enemy.position.x > transform.position.x) rb.AddForce(-transform.right*20, ForceMode2D.Impulse);
-		else rb.AddForce(transform.right*20, ForceMode2D.Impulse);
+		if (enemy.position.x > transform.position.x) rb.AddForce(-transform.right*5, ForceMode2D.Impulse);
+		else rb.AddForce(transform.right*5, ForceMode2D.Impulse);
 		hp -= damageEnemy;		
 	}
 	
