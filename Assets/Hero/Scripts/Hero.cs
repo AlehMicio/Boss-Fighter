@@ -10,7 +10,7 @@ public class Hero : Entity
 	public float hp;	
 	public Transform CheckPoint;			
 			
-	private float naprX;	
+	private float naprX;		
 	private int damageHero1 = 1;
 	private int damageHero2 = 3;
 	private float AttackRange = 0.8f;
@@ -57,7 +57,7 @@ public class Hero : Entity
 	private void FixedUpdate()
 	{
 		CheckGround();
-		CheckRoof();						
+		CheckRoof();								
 	}
 	
 	private void Update()
@@ -66,7 +66,7 @@ public class Hero : Entity
 		Pb.BarValue = hp*(100/FullHP); //Корректровка HP Bar
 		//Pb.BarValue = hp;
 		
-		//Движение:
+		//Движение:		
 		Run();
 		Jump();
 		Sit();
@@ -82,7 +82,7 @@ public class Hero : Entity
 		{
 			naprX = Input.GetAxis("Horizontal");
 			Vector3 dir = transform.right*naprX;
-			transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed*Time.deltaTime);		
+			transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed*Time.deltaTime);					
 			sprite.flipX = dir.x < 0.0f;
 		}
 
@@ -149,7 +149,7 @@ public class Hero : Entity
 			anim.SetTrigger("isAttack2");		
 			if (sprite.flipX == false)		
 			{
-				//transform.position = Vector2.MoveTowards(transform.position, transform.position + 5, 10*Time.deltaTime);
+				rb.AddForce(transform.right*10, ForceMode2D.Impulse);
 				Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint1.position, AttackRange, EnemyLayer);			 
 				for (int i = 0; i<enemies.Length; i++)
 				{
@@ -158,7 +158,7 @@ public class Hero : Entity
 			}
 			else
 			{
-				
+				rb.AddForce(-transform.right*10, ForceMode2D.Impulse);
 				Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint2.position, AttackRange, EnemyLayer);			 
 				for (int i = 0; i<enemies.Length; i++)
 				{
