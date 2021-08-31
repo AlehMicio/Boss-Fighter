@@ -10,6 +10,7 @@ public class Hero : Entity
 	public float hp;	
 	public Transform CheckPoint;			
 			
+	private float HPtxt;
 	private float naprX;		
 	private int damageHero1 = 1;
 	private int damageHero2 = 3;
@@ -24,6 +25,7 @@ public class Hero : Entity
 	private bool cd1; //CoolDown
 	private bool cd2;
 
+	[SerializeField] private Text txt;
 	[SerializeField] private Transform AttackPoint1;
 	[SerializeField] private Transform AttackPoint2;	
 	[SerializeField] private LayerMask EnemyLayer;
@@ -64,7 +66,8 @@ public class Hero : Entity
 	{
 		if (hp <= 0) WhenDie();
 		Pb.BarValue = hp*(100/FullHP); //Корректровка HP Bar
-		//Pb.BarValue = hp;
+		if (hp <= 0) HPtxt = 0; else HPtxt = hp;
+		txt.text = "HP " + HPtxt; 
 		
 		//Движение:		
 		Run();
@@ -149,26 +152,36 @@ public class Hero : Entity
 			anim.SetTrigger("isAttack2");		
 			if (sprite.flipX == false)		
 			{
-				rb.AddForce(transform.right*10, ForceMode2D.Impulse);
-				Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint1.position, AttackRange, EnemyLayer);			 
-				for (int i = 0; i<enemies.Length; i++)
-				{
-					enemies[i].GetComponent<Entity>().Damage(damageHero2);
-				}
+				rb.AddForce(transform.right*3, ForceMode2D.Impulse);								
 			}
 			else
 			{
-				rb.AddForce(-transform.right*10, ForceMode2D.Impulse);
-				Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint2.position, AttackRange, EnemyLayer);			 
-				for (int i = 0; i<enemies.Length; i++)
-				{
-					enemies[i].GetComponent<Entity>().Damage(damageHero2);
-				}
-			}
+				rb.AddForce(-transform.right*3, ForceMode2D.Impulse);
+			}			
 			cd2 = true;			
 			StartCoroutine(AttackCoolDown2());
 		}
 	}
+
+	private void OnAttack2()
+	{
+		if (sprite.flipX == false)		
+		{
+			Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint1.position, AttackRange, EnemyLayer);			 
+			for (int i = 0; i<enemies.Length; i++)
+			{
+				enemies[i].GetComponent<Entity>().Damage(damageHero2);
+			}				
+		}
+		else
+		{
+			Collider2D[] enemies = Physics2D.OverlapCircleAll(AttackPoint2.position, AttackRange, EnemyLayer);			 
+			for (int i = 0; i<enemies.Length; i++)
+			{
+				enemies[i].GetComponent<Entity>().Damage(damageHero2);
+			}					
+		}			
+	}	
 
 	private  IEnumerator AttackCoolDown1()
 	{
@@ -203,8 +216,8 @@ public class Hero : Entity
 
 	public void Otdacha(float damageEnemy)
 	{
-		if (enemy.position.x > transform.position.x) rb.AddForce(-transform.right*5, ForceMode2D.Impulse);
-		else rb.AddForce(transform.right*5, ForceMode2D.Impulse);
+		if (enemy.position.x > transform.position.x) rb.AddForce(-transform.right*8, ForceMode2D.Impulse);
+		else rb.AddForce(transform.right*8, ForceMode2D.Impulse);
 		hp -= damageEnemy;		
 	}
 	

@@ -156,6 +156,7 @@ MonoBehaviour:
   hp: 30
   CheckPoint: {fileID: 0}
   FullHP: 0
+  txt: {fileID: 0}
   AttackPoint1: {fileID: 3088796917661129973}
   AttackPoint2: {fileID: 1901001454}
   EnemyLayer:

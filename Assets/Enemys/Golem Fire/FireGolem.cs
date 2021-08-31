@@ -9,21 +9,22 @@ public class FireGolem: Entity
 	[SerializeField] private Transform point;	
 	[SerializeField] private LayerMask PlayerLayer;
 	[SerializeField] private LayerMask GroundLayer;
-	[SerializeField] public Text txt;						
+	[SerializeField] private Text txt;						
 
 	private float speed;
 	private float damageFireGolem1 = 2;
 	private float damageFireGolem2 = 15;	
-	private float agrDist = 5;
+	private float agrDist = 8;
 	private float attackRange = 1.5f;
-	private float jumpForce = 0.2f;
+	private float jumpForce;
+	private float cdJump;
 	private float RayDistToGround = 1.5f;
-	private int cdKick;	
+	private float cdKick;	
 	private int FullHP;	
 	private Transform player;		
 
 	private bool NotDie = true;	
-	private bool cd;
+	private bool cd;	
 	private bool canAttack;
 	private bool isGround;
 	private bool isWall;
@@ -54,24 +55,29 @@ public class FireGolem: Entity
 		FullHP = hp;
 		cd = false;
 		cdKick = 3;
+		cdJump = 0;
 	}
 	
 	private void FixedUpdate()
 	{
 		CheckPlayer();
-		CheckGround();
-
-		if (hp <= 0 && NotDie) WhenDie();
-		Pb.BarValue = hp*(100/FullHP); 			
+		CheckGround();				
 	}
 	
 	private void Update()
 	{
+		if (hp <= 0 && NotDie) WhenDie();
+		Pb.BarValue = hp*(100/FullHP);
+
+		if (cdJump > 0) cdJump -= Time.deltaTime;
+		if (!isGround) jumpForce = 15; else jumpForce = 7;  	
+
 		if (NotDie && !canAttack && agr == false && Vector2.Distance(transform.position, point.position) < 1) idle = true; 		
 		if (NotDie && !canAttack && Vector2.Distance(transform.position, player.position) < agrDist) {agr = true; idle = false; back = false;} 
 		if (NotDie && !canAttack && agr == false && idle == false && Vector2.Distance(transform.position, player.position) > agrDist) {back = true; agr = false; idle = false; attack = false;}	
 		if (NotDie && !cd && canAttack) {attack = true; idle = false; agr = false;}
-		if (NotDie && isWall) Jump();				
+		if (NotDie && isWall) Jump();
+						
 
 		if (idle == true) Idle();
 		 else if (attack == true) {Attack(); attack = false; }		  
@@ -82,7 +88,7 @@ public class FireGolem: Entity
 			   {
 				   this.gameObject.SetActive(false);
 				   back = false;
-				   Invoke ("Respawn",3);				   
+				   Invoke("Respawn",3);				   
 			   }	
 	}
 
@@ -117,8 +123,12 @@ public class FireGolem: Entity
 
 	private void Jump()
 	{
+		if (cdJump <= 0)
+		{
 		rb.AddForce(transform.up*jumpForce, ForceMode2D.Impulse);
-	}
+		cdJump = 2f;		
+		}			
+	}	
 
 	private void Attack()
 	{
@@ -202,6 +212,11 @@ public class FireGolem: Entity
 		cd = false;
 		cdKick = 3;					
    }
+
+   private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "Border") {Die(); Invoke("Respawn", 6);}
+	}
    
 }
 

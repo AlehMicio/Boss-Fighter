@@ -11,21 +11,22 @@ public class EarthGolem: Entity
 	[SerializeField] private PointForRazgon RP;
 	[SerializeField] private LayerMask PlayerLayer;
 	[SerializeField] private LayerMask GroundLayer;
-	[SerializeField] public Text txt;						
+	[SerializeField] private Text txt;						
 
 	private float speed;
 	private float damageEarthGolem1 = 1;
 	private float damageEarthGolem2 = 5;	
 	private float agrDist = 5;
 	private float attackRange = 1.5f;
-	private float jumpForce = 0.2f;
+	private float jumpForce;
+	private float cdJump;	
 	private float RayDistToGround = 1.5f;	
 	private int FullHP;	
 	private Transform player;
 			
 
 	[HideInInspector] public bool NotDie = true;	
-	private bool cd;
+	private bool cd;	
 	private bool canAttack;
 	private bool isGround;
 	private bool isWall;
@@ -55,7 +56,8 @@ public class EarthGolem: Entity
 		
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		FullHP = hp;
-		cd = false;				
+		cd = false;
+		cdJump = 0;				
 	}
 	
 	private void FixedUpdate()
@@ -67,13 +69,16 @@ public class EarthGolem: Entity
 	private void Update()
 	{
 		if (hp <= 0 && NotDie) WhenDie();
-		Pb.BarValue = hp*(100/FullHP);		
+		Pb.BarValue = hp*(100/FullHP);
+
+		if (cdJump > 0) cdJump -= Time.deltaTime;
+		if (!isGround) jumpForce = 15; else jumpForce = 7;		
 
 		if (NotDie && !canAttack && agr == false && Vector2.Distance(transform.position, point.position) < 1) idle = true; 		
 		if (NotDie && !canAttack && Vector2.Distance(transform.position, player.position) < agrDist) {agr = true; idle = false; back = false;} 
 		if (NotDie && !canAttack && agr == false && idle == false && Vector2.Distance(transform.position, player.position) > agrDist) {back = true; agr = false; idle = false; attack = false;}	
 		if (NotDie && !cd && canAttack) {attack = true; idle = false; agr = false;}
-		if (NotDie && isWall) Jump();		
+		if (NotDie && isWall) Jump();
 				
 		if (razgon == true)
 		{
@@ -125,8 +130,12 @@ public class EarthGolem: Entity
 
 	private void Jump()
 	{
+		if (cdJump <= 0)
+		{
 		rb.AddForce(transform.up*jumpForce, ForceMode2D.Impulse);
-	}
+		cdJump = 2f;		
+		}		
+	}	
 
 	private void Attack()
 	{
