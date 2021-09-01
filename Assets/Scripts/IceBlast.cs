@@ -8,11 +8,10 @@ public class IceBlast : Entity
     private float speed = 20;
 
     private Transform player;
-    private Rigidbody2D rb;
+    
  
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

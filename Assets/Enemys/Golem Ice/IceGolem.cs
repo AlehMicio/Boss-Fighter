@@ -191,7 +191,7 @@ public class IceGolem: Entity
 
 	private void CheckToFire()
 	{
-		if (Vector2.Distance(transform.position, player.position) > 1.5f && Vector2.Distance(transform.position, player.position) < 20f)
+		if (Vector2.Distance(transform.position, player.position) > 1.5f && Vector2.Distance(transform.position, player.position) < 15f)
 		 DistToFire = true; 
 		  else DistToFire = false; 
 	}
@@ -207,7 +207,7 @@ public class IceGolem: Entity
 		txt.text = "";
 		anim.SetTrigger("isDie");		
 		Invoke("Die",3);
-		Invoke("Respawn",6);		
+		//Invoke("Respawn",6);		
 	}
 
 	private void Respawn()

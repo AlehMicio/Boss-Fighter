@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class HealthRegen : Entity
 {
-    [SerializeField] private Hero health;
+    [SerializeField] private Hero hero;
 
     private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Player")
 		{
-		    health.GetComponent<Hero>().hp += 5;						
+		    hero.GetComponent<Hero>().hp += 20;						
 		}
 		Die();	
 	}

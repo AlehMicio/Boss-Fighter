@@ -13,7 +13,7 @@ public class FireGolem: Entity
 
 	private float speed;
 	private float damageFireGolem1 = 2;
-	private float damageFireGolem2 = 15;	
+	private float damageFireGolem2 = 10;	
 	private float agrDist = 8;
 	private float attackRange = 1.5f;
 	private float jumpForce;
@@ -200,7 +200,7 @@ public class FireGolem: Entity
 		txt.text = "";
 		anim.SetTrigger("isDie");		
 		Invoke("Die",3);
-		Invoke("Respawn",6);		
+		//Invoke("Respawn",60);		
 	}
 
 	private void Respawn()

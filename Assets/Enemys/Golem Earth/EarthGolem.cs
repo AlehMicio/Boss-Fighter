@@ -204,7 +204,7 @@ public class EarthGolem: Entity
 		txt.text = "";
 		anim.SetTrigger("isDie");		
 		Invoke("Die",3);
-		Invoke("Respawn",6);		
+		//Invoke("Respawn",6);		
 	}
 
 	private void Respawn()
