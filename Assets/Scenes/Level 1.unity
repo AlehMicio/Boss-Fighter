@@ -969,7 +969,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82558225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.23, z: -10}
+  m_LocalPosition: {x: 0, y: -0.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1564,6 +1564,7 @@ GameObject:
   - component: {fileID: 132637950}
   - component: {fileID: 132637949}
   - component: {fileID: 132637948}
+  - component: {fileID: 132637951}
   m_Layer: 8
   m_Name: Ice_Golem
   m_TagString: Enemy
@@ -1627,6 +1628,29 @@ CapsuleCollider2D:
   m_Offset: {x: -0.014693499, y: -0.13468981}
   m_Size: {x: 0.5979562, y: 1.5436563}
   m_Direction: 0
+--- !u!114 &132637951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132637947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b342f5b515d7e4bae1ad5de107e550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 15
+  point: {fileID: 762292587}
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  txt: {fileID: 1486277412}
+  Pb: {fileID: 688044442}
+  iceBlast: {fileID: 9049466872567879219, guid: 111f0e03d2d36b94ba3524b6982eb1c9, type: 3}
 --- !u!1 &132911382
 GameObject:
   m_ObjectHideFlags: 0
@@ -8024,7 +8048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166732968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 26.937834}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2710146690517487088}
@@ -12734,7 +12758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880677463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 27.266619}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9203862374417410350}
@@ -13471,7 +13495,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   txt: {fileID: 4824585927536215413}
-  cdJump: 0
   Pb: {fileID: 4019275414340801644}
 --- !u!1 &1972078144
 GameObject:
@@ -20156,11 +20179,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127720, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.89
+      value: 9.19
       objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127720, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.92
+      value: 5.96
       objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127720, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: m_LocalPosition.z

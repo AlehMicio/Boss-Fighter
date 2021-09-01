@@ -20,7 +20,7 @@ public class Hero : Entity
 	[HideInInspector] public float FullHP;	
 	
 	private bool isGround;
-	private bool isRoof;	
+	private bool isRoof;		
 	private bool NotDie = true;			
 	private bool cd1; //CoolDown
 	private bool cd2;
@@ -86,7 +86,7 @@ public class Hero : Entity
 			naprX = Input.GetAxis("Horizontal");
 			Vector3 dir = transform.right*naprX;
 			transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed*Time.deltaTime);					
-			sprite.flipX = dir.x < 0.0f;
+			sprite.flipX = dir.x < 0.0f;		
 		}
 
 		if (NotDie && isGround && Input.GetButton("Horizontal")) anim.SetBool("isRun", true);

@@ -5,26 +5,27 @@ using UnityEngine.UI;
 
 public class IceGolem: Entity
 {
-    [SerializeField] private int hp;
-	[SerializeField] private float speed;	
+    [SerializeField] private int hp;		 	
 	[SerializeField] private Transform point;	
 	[SerializeField] private LayerMask PlayerLayer;
 	[SerializeField] private LayerMask GroundLayer;
-	[SerializeField] public Text txt;
-	
-	private float speed1 = 5;
-	private int damageFireGolem = 1;	
+	[SerializeField] private Text txt;						
+
+	private float speed;
+	private float damageIceGolem1 = 2;
+	//private float damageIceGolem2 = 5;	
 	private float agrDist = 5;
-	private float attackRange = 1;
-	private float jumpForce = 0.2f;
-	private float RayDistToGround = 1.5f;	
-	private float FullHP;
-	//private int damage;
+	private float attackRange = 1.5f;	
+	private float jumpForce;
+	private float cdJump;
+	private float cdFire;
+	private float RayDistToGround = 1.5f;		
+	private int FullHP;	
 	private Transform player;		
 
-	private bool NotDie = true;
-	//private bool moveRigth = true;
+	private bool NotDie = true;	
 	private bool cd;
+	private bool DistToFire;	
 	private bool canAttack;
 	private bool isGround;
 	private bool isWall;
@@ -32,7 +33,8 @@ public class IceGolem: Entity
 	private bool isWallL;
 	private bool idle = true;
 	private bool agr = false;
-	private bool back = false;		
+	private bool back = false;
+	private bool attack = false;		
 
 	private Rigidbody2D rb;
 	private SpriteRenderer sprite;
@@ -41,6 +43,7 @@ public class IceGolem: Entity
 	private RaycastHit2D isCheckGround;
 	private RaycastHit2D isCheckWallL;
 	private RaycastHit2D isCheckWallR;
+	[SerializeField] private GameObject iceBlast;
 
 	//Программные функции	
 
@@ -52,35 +55,52 @@ public class IceGolem: Entity
 		
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		FullHP = hp;
-		cd = false;
+		cd = false;		
+		cdJump = 0;
+		cdFire = 0;
 	}
 	
 	private void FixedUpdate()
 	{
 		CheckPlayer();
-		CheckGround();			
+		CheckGround();
+		CheckToFire();				
 	}
 	
 	private void Update()
 	{
-		if (hp <= 0) WhenDie();
-		Pb.BarValue = hp*(100/FullHP);   
+		if (hp <= 0 && NotDie) WhenDie();
+		Pb.BarValue = hp*(100/FullHP);
 
-		if (NotDie && !canAttack && Vector2.Distance(transform.position, point.position) < 1) {idle = true; agr = false; back = false;}		
-		if (NotDie && !canAttack && Vector2.Distance(transform.position, player.position) < agrDist) {agr = true; idle = false; back = false;}
-		if (NotDie && !canAttack && idle == false && Vector2.Distance(transform.position, player.position) > agrDist) {back = true; agr = false; idle = false;}
-		if (NotDie && !cd && canAttack) {Attack(); agr = false; back = false;}
-		if (NotDie && isWall) Jump();				
+		if (cdJump > 0) cdJump -= Time.deltaTime;
+		if (!isGround) jumpForce = 15; else jumpForce = 7;  	
 
-		if (idle == true) Idle();		  
-		 else if (agr == true) Agr();		  
-		  else if (back == true) GoBack(); 	
+		if (NotDie && !canAttack && agr == false && Vector2.Distance(transform.position, point.position) < 1) idle = true; 		
+		if (NotDie && !canAttack && Vector2.Distance(transform.position, player.position) < agrDist) {agr = true; idle = false; back = false;} 
+		if (NotDie && !canAttack && agr == false && idle == false && Vector2.Distance(transform.position, player.position) > agrDist) {back = true; agr = false; idle = false; attack = false;}	
+		if (NotDie && !cd && canAttack) {attack = true; idle = false; agr = false;}
+		if (NotDie && isWall) Jump();
+		if (NotDie && isGround && DistToFire) Fire();
+						
+
+		if (idle == true) Idle();
+		 else if (attack == true) {Attack(); attack = false; }		  
+		  else if (agr == true) {Agr(); agr = false;}		  
+		   else if (back == true)
+		     if (Vector2.Distance(transform.position, point.position) < 15)	{GoBack(); back = false;}
+			  else
+			   {
+				   this.gameObject.SetActive(false);
+				   back = false;
+				   Invoke("Respawn",3);				   
+			   }	
 	}
 
 	//Основные функции
 			
 	private void Idle()
 	{
+		speed = 0;
 		anim.SetBool("isWalk", false);
 		anim.SetBool("isRun", false);		
 		sprite.flipX = true;
@@ -89,14 +109,16 @@ public class IceGolem: Entity
 
 	private void Agr()
 	{
+		speed = 4;		
 		anim.SetBool("isRun", true);
 		txt.text = "Ща захуярю";				
-		transform.position = Vector2.MoveTowards(transform.position, player.position, speed1*Time.deltaTime);
-		if (transform.position.x > player.position.x) sprite.flipX = true; else sprite.flipX = false;
+		transform.position = Vector2.MoveTowards(transform.position, player.position, speed*Time.deltaTime);
+		if (transform.position.x > player.position.x) sprite.flipX = true; else sprite.flipX = false;		
 	}
 
 	private void GoBack()
 	{
+		speed = 4;
 		anim.SetBool("isWalk", true);
 		txt.text = "На базу";
 		transform.position = Vector2.MoveTowards(transform.position, point.position, speed*Time.deltaTime);
@@ -105,23 +127,28 @@ public class IceGolem: Entity
 
 	private void Jump()
 	{
+		if (cdJump <= 0)
+		{
 		rb.AddForce(transform.up*jumpForce, ForceMode2D.Impulse);
-	}
+		cdJump = 2f;		
+		}			
+	}	
 
 	private void Attack()
 	{
-		anim.SetTrigger("isAttack");				
+		anim.SetTrigger("isAttack");
+		txt.text = "Атакую!";				
 		cd = true;			
-		StartCoroutine(AttackCoolDown());
-		
+		StartCoroutine(AttackCoolDown());				
 	}
 
 	private void OnAttack()
 	{
+		speed = 0;
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
 		for (int i = 0; i<enemies.Length; i++)
 		{
-			enemies[i].GetComponent<Hero>().GetDamage(damageFireGolem); //Hero - a name of script;
+			enemies[i].GetComponent<Hero>().GetDamage(damageIceGolem1); //Hero - a name of script;
 		}
 	}
 
@@ -130,6 +157,18 @@ public class IceGolem: Entity
 		yield return new WaitForSeconds(1f);
 		cd = false;
 	}
+
+	private void Fire()
+	{
+		if (cdFire <= 0)
+		{
+			txt.text = "Стреляю!";
+			speed = 0;
+			Instantiate(iceBlast, transform.position, transform.rotation);
+			cdFire = 0.3f;
+		}
+		else cdFire -= Time.deltaTime;	
+	}	
 
 	//Вспомогательные функции
 
@@ -150,6 +189,13 @@ public class IceGolem: Entity
 		isWall = isWallR || isWallL;
 	}
 
+	private void CheckToFire()
+	{
+		if (Vector2.Distance(transform.position, player.position) > 1.5f && Vector2.Distance(transform.position, player.position) < 20f)
+		 DistToFire = true; 
+		  else DistToFire = false; 
+	}
+
 	public override void Damage(int damage)
 	{
 		hp -= damage;
@@ -157,16 +203,26 @@ public class IceGolem: Entity
 
 	private void WhenDie()
 	{
-		anim.SetTrigger("isDie");
 		NotDie = false;
-		Invoke("Die",5);
+		txt.text = "";
+		anim.SetTrigger("isDie");		
+		Invoke("Die",3);
+		Invoke("Respawn",6);		
 	}
 
-	private void OnDrawGizmosSelected() //Сфера для радиуса атаки
+	private void Respawn()
+   {
+        this.gameObject.SetActive(true);		
+		hp = FullHP;
+		transform.position = point.position;
+		NotDie = true;
+		cd = false;							
+   }
+
+   private void OnCollisionEnter2D(Collision2D other)
 	{
-		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(transform.position, attackRange);	
+		if (other.gameObject.tag == "Border") {Die(); Invoke("Respawn", 6);}
 	}
-
+   
 }
 
