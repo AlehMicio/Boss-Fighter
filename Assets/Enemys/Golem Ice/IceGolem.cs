@@ -12,8 +12,7 @@ public class IceGolem: Entity
 	[SerializeField] private Text txt;						
 
 	private float speed;
-	private float damageIceGolem1 = 2;
-	//private float damageIceGolem2 = 5;	
+	private float damageIceGolem1 = 2;		
 	private float agrDist = 5;
 	private float attackRange = 1.5f;	
 	private float jumpForce;
