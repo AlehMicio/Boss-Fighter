@@ -10,7 +10,7 @@ public class HealthRegen : Entity
 	{
 		if (other.tag == "Player")
 		{
-		    hero.GetComponent<Hero>().hp += 20;						
+		    hero.GetComponent<Hero>().hp += 10;						
 		}
 		Die();	
 	}
