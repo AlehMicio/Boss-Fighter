@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pb: {fileID: 0}
-  hp: 30
+  hp: 50
   CheckPoint: {fileID: 0}
   FullHP: 0
   txt: {fileID: 0}

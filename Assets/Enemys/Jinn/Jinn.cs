@@ -9,9 +9,9 @@ public class Jinn: Entity
 	[SerializeField] private Transform point;
 	[SerializeField] private Transform attackPoint;	
 	[SerializeField] private LayerMask PlayerLayer;							
-	[SerializeField] private GameObject jinnBlast;
-	[SerializeField] private LayerMask GroundLayer;
+	[SerializeField] private GameObject jinnBlast;	
 	[SerializeField] private Text txt;
+	[SerializeField] private CapsuleCollider2D capsul;
 
 	private float cdFire;			
 	private int FullHP;	
@@ -22,7 +22,7 @@ public class Jinn: Entity
 
 	private Rigidbody2D rb;
 	private SpriteRenderer sprite;
-	private Animator anim;	
+	private Animator anim;		
 	public ProgressBar Pb;	
 
 	//Программные функции	
@@ -69,7 +69,7 @@ public class Jinn: Entity
 
 	private void CheckPlayer()
 	{
-		if (Vector2.Distance(transform.position, player.position) < 15f)
+		if (Vector2.Distance(transform.position, player.position) < 13f)
 		 fire = true; 
 		  else fire = false; 
 	}	
@@ -85,7 +85,8 @@ public class Jinn: Entity
 		txt.text = "Я был Рембо нах...";		
 		anim.SetTrigger("isDeath");		
 		Invoke("Die",2);
-		//Invoke("Respawn",4);		
+		//Invoke("Respawn",4);
+		capsul.enabled = false;		
 	}
 
 	private void Respawn()
@@ -93,7 +94,8 @@ public class Jinn: Entity
         this.gameObject.SetActive(true);		
 		hp = FullHP;
 		transform.position = point.position;
-		NotDie = true;									
+		NotDie = true;
+		capsul.enabled = true;									
    }
 
    private void OnCollisionEnter2D(Collision2D other)
