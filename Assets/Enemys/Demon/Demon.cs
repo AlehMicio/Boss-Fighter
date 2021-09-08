@@ -8,12 +8,15 @@ public class Demon : Entity
     [SerializeField] private int hp;		 	
 	[SerializeField] private Transform point;	
 	[SerializeField] private LayerMask PlayerLayer;
-	[SerializeField] private LayerMask GroundLayer;							
+	[SerializeField] private LayerMask GroundLayer;
+	[SerializeField] private CapsuleCollider2D capsulIdle;
+	[SerializeField] private CapsuleCollider2D capsulAttack;
+	[SerializeField] private BoxCollider2D boxDie;							
 
 	private float speed;
 	private float damageDemon = 2;		
 	private float agrDist = 15;
-	private float attackRange = 1.5f;
+	private float attackRange = 3f;
 	private float jumpForce;
 	private float cdJump;
 	private float RayDistToGround = 1.5f;		
@@ -51,6 +54,7 @@ public class Demon : Entity
 		FullHP = hp;
 		cd = false;		
 		cdJump = 0;
+		boxDie.enabled = false;
 	}
 	
 	private void FixedUpdate()
@@ -73,9 +77,9 @@ public class Demon : Entity
 		if (NotDie && isWall) Jump();
 						
 
-		if (idle == true) Idle();
-		 else if (attack == true) {Attack(); attack = false;}		  
-		  else if (agr == true) {Agr(); agr = false;}		  		   
+		if (idle == true) {Idle(); capsulIdle.enabled = true; capsulAttack.enabled = false;}
+		 else if (attack == true) {Attack(); capsulIdle.enabled = false; capsulAttack.enabled = true; attack = false;}		  
+		  else if (agr == true) {Agr(); capsulIdle.enabled = true; capsulAttack.enabled = false; agr = false;}		  		   
 	}
 
 	//Основные функции
@@ -153,7 +157,10 @@ public class Demon : Entity
 
 	private void WhenDie()
 	{
-		NotDie = false;		
+		NotDie = false;
+		boxDie.enabled = true;
+		capsulIdle.enabled = false;
+		capsulAttack.enabled = false;		
 		anim.SetTrigger("isDie");		
 		Invoke("Die",3);
 		Invoke("Respawn",6);		
@@ -165,7 +172,8 @@ public class Demon : Entity
 		hp = FullHP;
 		transform.position = point.position;
 		NotDie = true;
-		cd = false;							
+		cd = false;
+		boxDie.enabled = false;							
    }
 
    private void OnCollisionEnter2D(Collision2D other)
