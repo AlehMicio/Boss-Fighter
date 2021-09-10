@@ -1611,7 +1611,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!70 &132637950
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2310,7 +2310,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!70 &196373121
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -21557,7 +21557,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!223 &7952218409770608194
 Canvas:
   m_ObjectHideFlags: 0
