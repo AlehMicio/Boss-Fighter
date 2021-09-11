@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 14070923}
   - component: {fileID: 14070922}
   - component: {fileID: 14070924}
+  - component: {fileID: 14070925}
   m_Layer: 0
   m_Name: TX Village Props Spike
   m_TagString: Untagged
@@ -354,7 +355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14070921}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.13566, y: 6.4916363, z: 957.5802}
+  m_LocalPosition: {x: 21.13566, y: 6.4916363, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
@@ -370,7 +371,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.171875}
@@ -386,6 +387,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.03125, y: 0.34375}
   m_EdgeRadius: 0
+--- !u!114 &14070925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14070921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &19665358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1375,7 @@ GameObject:
   - component: {fileID: 233968144}
   - component: {fileID: 233968143}
   - component: {fileID: 233968145}
+  - component: {fileID: 233968146}
   m_Layer: 0
   m_Name: TX Village Props Spear (7)
   m_TagString: Untagged
@@ -1427,11 +1442,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233968142}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.7926598, y: 8.932636, z: 957.5802}
+  m_LocalPosition: {x: 4.7926598, y: 8.932636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &233968145
 BoxCollider2D:
@@ -1443,7 +1458,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1459,6 +1474,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.90625, y: 0.15625}
   m_EdgeRadius: 0
+--- !u!114 &233968146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233968142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &268270928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,6 +1580,7 @@ GameObject:
   - component: {fileID: 276401656}
   - component: {fileID: 276401655}
   - component: {fileID: 276401657}
+  - component: {fileID: 276401658}
   m_Layer: 0
   m_Name: TX Village Props Spike Ball (2)
   m_TagString: Untagged
@@ -1618,7 +1647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276401654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.162613, y: 11.831458, z: 957.5802}
+  m_LocalPosition: {x: 33.162613, y: 11.831458, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
@@ -1634,12 +1663,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.421875
+--- !u!114 &276401658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276401654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &276826015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,6 +1775,7 @@ GameObject:
   - component: {fileID: 288674773}
   - component: {fileID: 288674772}
   - component: {fileID: 288674774}
+  - component: {fileID: 288674775}
   m_Layer: 0
   m_Name: TX Village Props Spike (2)
   m_TagString: Untagged
@@ -1799,7 +1842,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288674771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.13566, y: 6.4916363, z: 957.5802}
+  m_LocalPosition: {x: 17.13566, y: 6.4916363, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
@@ -1815,7 +1858,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.171875}
@@ -1831,6 +1874,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.03125, y: 0.34375}
   m_EdgeRadius: 0
+--- !u!114 &288674775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288674771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &290387895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,14 +2549,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404344218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.841341, y: -1.5116361, z: -957.5802}
+  m_LocalPosition: {x: 18.841341, y: -1.5116361, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 14070923}
   - {fileID: 1754789276}
   - {fileID: 288674773}
   - {fileID: 888540434}
-  - {fileID: 605861128}
   - {fileID: 1622223706}
   - {fileID: 1382178257}
   - {fileID: 1407814912}
@@ -2509,13 +2564,14 @@ Transform:
   - {fileID: 1450715063}
   - {fileID: 1297362313}
   - {fileID: 233968144}
+  - {fileID: 605861128}
   - {fileID: 1862074483}
   - {fileID: 276401656}
-  - {fileID: 584023277}
   - {fileID: 418795335}
   - {fileID: 1771358122}
   - {fileID: 1922771067}
   - {fileID: 764708204}
+  - {fileID: 584023277}
   - {fileID: 2118328042}
   - {fileID: 461046892}
   m_Father: {fileID: 0}
@@ -2532,6 +2588,7 @@ GameObject:
   - component: {fileID: 418795335}
   - component: {fileID: 418795334}
   - component: {fileID: 418795336}
+  - component: {fileID: 418795337}
   m_Layer: 0
   m_Name: WoodenSpikes04
   m_TagString: Untagged
@@ -2598,11 +2655,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418795333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.648489, y: -0.52237356, z: 957.5802}
+  m_LocalPosition: {x: 14.648489, y: -0.52237356, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &418795336
 BoxCollider2D:
@@ -2614,7 +2671,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.5136273}
@@ -2630,6 +2687,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.625, y: 1.0272546}
   m_EdgeRadius: 0
+--- !u!114 &418795337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418795333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
 --- !u!1 &422667918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,6 +2810,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1594734267}
+  - {fileID: 527711628}
+  - {fileID: 1010028657}
+  - {fileID: 1674231876}
   m_Father: {fileID: 1411141308}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2836,6 +2909,7 @@ GameObject:
   - component: {fileID: 461046892}
   - component: {fileID: 461046891}
   - component: {fileID: 461046893}
+  - component: {fileID: 461046894}
   m_Layer: 0
   m_Name: Spikes (2)
   m_TagString: Untagged
@@ -2902,7 +2976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461046890}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 33.82866, y: -4.0683637, z: 957.5802}
+  m_LocalPosition: {x: 33.82866, y: -4.0683637, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
@@ -2918,7 +2992,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2934,6 +3008,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.96875, y: 0.99375}
   m_EdgeRadius: 0
+--- !u!114 &461046894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461046890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &480545067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,6 +3499,7 @@ GameObject:
   - component: {fileID: 512433058}
   - component: {fileID: 512433057}
   - component: {fileID: 512433059}
+  - component: {fileID: 512433060}
   m_Layer: 0
   m_Name: TX Village Props Spear (3)
   m_TagString: Untagged
@@ -3478,11 +3566,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512433056}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.5426598, y: 8.932636, z: 957.5802}
+  m_LocalPosition: {x: 2.5426598, y: 8.932636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &512433059
 BoxCollider2D:
@@ -3494,7 +3582,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3510,6 +3598,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.90625, y: 0.15625}
   m_EdgeRadius: 0
+--- !u!114 &512433060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512433056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &523744245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3674,6 +3775,68 @@ Transform:
   m_Father: {fileID: 1099002929}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &527711627
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 441739081}
+    m_Modifications:
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 31.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163858, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_Name
+      value: CheckPoint1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+--- !u!4 &527711628 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+  m_PrefabInstance: {fileID: 527711627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &537003970
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,6 +4129,7 @@ GameObject:
   - component: {fileID: 584023277}
   - component: {fileID: 584023276}
   - component: {fileID: 584023278}
+  - component: {fileID: 584023279}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -4032,11 +4196,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584023275}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 33.82866, y: 1.9316361, z: 957.5802}
+  m_LocalPosition: {x: 33.82866, y: 1.9316361, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 15
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &584023278
 BoxCollider2D:
@@ -4048,7 +4212,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4064,6 +4228,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.96875, y: 0.99375}
   m_EdgeRadius: 0
+--- !u!114 &584023279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584023275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &584842456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4359,6 +4536,7 @@ GameObject:
   - component: {fileID: 605861128}
   - component: {fileID: 605861127}
   - component: {fileID: 605861129}
+  - component: {fileID: 605861130}
   m_Layer: 0
   m_Name: TX Village Props Spike Ball
   m_TagString: Untagged
@@ -4425,11 +4603,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605861126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.162613, y: 15.081458, z: 957.5802}
+  m_LocalPosition: {x: 33.162613, y: 15.081458, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 4
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &605861129
 CircleCollider2D:
@@ -4441,12 +4619,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.421875
+--- !u!114 &605861130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605861126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &605939245
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,6 +6067,7 @@ GameObject:
   - component: {fileID: 764708204}
   - component: {fileID: 764708203}
   - component: {fileID: 764708205}
+  - component: {fileID: 764708206}
   m_Layer: 0
   m_Name: WoodenSpikes04 (3)
   m_TagString: Untagged
@@ -5942,11 +6134,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764708202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.648489, y: -0.52237356, z: 957.5802}
+  m_LocalPosition: {x: 2.648489, y: -0.52237356, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &764708205
 BoxCollider2D:
@@ -5958,7 +6150,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.52342117}
@@ -5974,6 +6166,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.625, y: 1.0468423}
   m_EdgeRadius: 0
+--- !u!114 &764708206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764708202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
 --- !u!1 &772375457
 GameObject:
   m_ObjectHideFlags: 0
@@ -6730,6 +6935,7 @@ GameObject:
   - component: {fileID: 888540434}
   - component: {fileID: 888540433}
   - component: {fileID: 888540435}
+  - component: {fileID: 888540436}
   m_Layer: 0
   m_Name: TX Village Props Spike (3)
   m_TagString: Untagged
@@ -6796,7 +7002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888540432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.13566, y: 6.4916363, z: 957.5802}
+  m_LocalPosition: {x: 18.13566, y: 6.4916363, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
@@ -6812,7 +7018,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.171875}
@@ -6828,6 +7034,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.03125, y: 0.34375}
   m_EdgeRadius: 0
+--- !u!114 &888540436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888540432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &893444199
 GameObject:
   m_ObjectHideFlags: 0
@@ -7501,6 +7720,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1010028656
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 441739081}
+    m_Modifications:
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163858, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_Name
+      value: CheckPoint2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+--- !u!4 &1010028657 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+  m_PrefabInstance: {fileID: 1010028656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1041070774
 GameObject:
   m_ObjectHideFlags: 0
@@ -25947,6 +26228,7 @@ GameObject:
   - component: {fileID: 1297362313}
   - component: {fileID: 1297362312}
   - component: {fileID: 1297362314}
+  - component: {fileID: 1297362315}
   m_Layer: 0
   m_Name: TX Village Props Spear (6)
   m_TagString: Untagged
@@ -26013,11 +26295,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297362311}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.45734024, y: 8.932636, z: 957.5802}
+  m_LocalPosition: {x: -0.45734024, y: 8.932636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &1297362314
 BoxCollider2D:
@@ -26029,7 +26311,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -26045,6 +26327,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.90625, y: 0.15625}
   m_EdgeRadius: 0
+--- !u!114 &1297362315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297362311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &1298893032
 GameObject:
   m_ObjectHideFlags: 0
@@ -26238,11 +26533,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127720, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.45
+      value: -8.65
       objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127720, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.91
+      value: -1.07
       objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127720, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27030,6 +27325,7 @@ GameObject:
   - component: {fileID: 1382178257}
   - component: {fileID: 1382178256}
   - component: {fileID: 1382178258}
+  - component: {fileID: 1382178259}
   m_Layer: 0
   m_Name: TX Village Props Spear (1)
   m_TagString: Untagged
@@ -27096,11 +27392,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382178255}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.0426598, y: 8.932636, z: 957.5802}
+  m_LocalPosition: {x: 1.0426598, y: 8.932636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &1382178258
 BoxCollider2D:
@@ -27112,7 +27408,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -27128,6 +27424,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.90625, y: 0.15625}
   m_EdgeRadius: 0
+--- !u!114 &1382178259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382178255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &1407814910
 GameObject:
   m_ObjectHideFlags: 0
@@ -27139,6 +27448,7 @@ GameObject:
   - component: {fileID: 1407814912}
   - component: {fileID: 1407814911}
   - component: {fileID: 1407814913}
+  - component: {fileID: 1407814914}
   m_Layer: 0
   m_Name: TX Village Props Spear (2)
   m_TagString: Untagged
@@ -27205,11 +27515,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407814910}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.7926598, y: 8.932636, z: 957.5802}
+  m_LocalPosition: {x: 1.7926598, y: 8.932636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &1407814913
 BoxCollider2D:
@@ -27221,7 +27531,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -27237,6 +27547,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.90625, y: 0.15625}
   m_EdgeRadius: 0
+--- !u!114 &1407814914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407814910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &1411141307
 GameObject:
   m_ObjectHideFlags: 0
@@ -27288,6 +27611,7 @@ GameObject:
   - component: {fileID: 1450715063}
   - component: {fileID: 1450715062}
   - component: {fileID: 1450715064}
+  - component: {fileID: 1450715065}
   m_Layer: 0
   m_Name: TX Village Props Spear (5)
   m_TagString: Untagged
@@ -27354,11 +27678,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450715061}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.0426598, y: 8.932636, z: 957.5802}
+  m_LocalPosition: {x: 4.0426598, y: 8.932636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &1450715064
 BoxCollider2D:
@@ -27370,7 +27694,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -27386,6 +27710,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.90625, y: 0.15625}
   m_EdgeRadius: 0
+--- !u!114 &1450715065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450715061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &1499066310
 GameObject:
   m_ObjectHideFlags: 0
@@ -28406,6 +28743,7 @@ GameObject:
   - component: {fileID: 1622223706}
   - component: {fileID: 1622223705}
   - component: {fileID: 1622223707}
+  - component: {fileID: 1622223708}
   m_Layer: 0
   m_Name: TX Village Props Spear
   m_TagString: Untagged
@@ -28472,11 +28810,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622223704}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.29265976, y: 8.932636, z: 957.5802}
+  m_LocalPosition: {x: 0.29265976, y: 8.932636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &1622223707
 BoxCollider2D:
@@ -28488,7 +28826,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -28504,6 +28842,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.90625, y: 0.15625}
   m_EdgeRadius: 0
+--- !u!114 &1622223708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622223704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &1651431281
 GameObject:
   m_ObjectHideFlags: 0
@@ -28586,6 +28937,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1674231875
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 441739081}
+    m_Modifications:
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929796185920163858, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+      propertyPath: m_Name
+      value: CheckPoint3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+--- !u!4 &1674231876 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4929796185920163857, guid: 10a43d86870c26f4199f4c66993ebadd, type: 3}
+  m_PrefabInstance: {fileID: 1674231875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1696260742
 GameObject:
   m_ObjectHideFlags: 0
@@ -29089,6 +29502,7 @@ GameObject:
   - component: {fileID: 1754789276}
   - component: {fileID: 1754789275}
   - component: {fileID: 1754789277}
+  - component: {fileID: 1754789278}
   m_Layer: 0
   m_Name: TX Village Props Spike (1)
   m_TagString: Untagged
@@ -29155,7 +29569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754789274}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.13566, y: 6.4916363, z: 957.5802}
+  m_LocalPosition: {x: 22.13566, y: 6.4916363, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
@@ -29171,7 +29585,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.171875}
@@ -29187,6 +29601,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.03125, y: 0.34375}
   m_EdgeRadius: 0
+--- !u!114 &1754789278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754789274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &1771358120
 GameObject:
   m_ObjectHideFlags: 0
@@ -29198,6 +29625,7 @@ GameObject:
   - component: {fileID: 1771358122}
   - component: {fileID: 1771358121}
   - component: {fileID: 1771358123}
+  - component: {fileID: 1771358124}
   m_Layer: 0
   m_Name: WoodenSpikes04 (1)
   m_TagString: Untagged
@@ -29264,11 +29692,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771358120}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.648489, y: -0.52237356, z: 957.5802}
+  m_LocalPosition: {x: 10.648489, y: -0.52237356, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1771358123
 BoxCollider2D:
@@ -29280,7 +29708,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.52342117}
@@ -29296,6 +29724,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.625, y: 1.0468423}
   m_EdgeRadius: 0
+--- !u!114 &1771358124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771358120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
 --- !u!1 &1807065997
 GameObject:
   m_ObjectHideFlags: 0
@@ -29635,6 +30076,7 @@ GameObject:
   - component: {fileID: 1862074483}
   - component: {fileID: 1862074482}
   - component: {fileID: 1862074484}
+  - component: {fileID: 1862074485}
   m_Layer: 0
   m_Name: TX Village Props Spike Ball (1)
   m_TagString: Untagged
@@ -29701,7 +30143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862074481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.162613, y: 13.581458, z: 957.5802}
+  m_LocalPosition: {x: 33.162613, y: 13.581458, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
@@ -29717,12 +30159,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.421875
+--- !u!114 &1862074485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862074481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1876867997
 GameObject:
   m_ObjectHideFlags: 0
@@ -30153,6 +30608,7 @@ GameObject:
   - component: {fileID: 1922771067}
   - component: {fileID: 1922771066}
   - component: {fileID: 1922771068}
+  - component: {fileID: 1922771069}
   m_Layer: 0
   m_Name: WoodenSpikes04 (2)
   m_TagString: Untagged
@@ -30219,11 +30675,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922771065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.648489, y: -0.52237356, z: 957.5802}
+  m_LocalPosition: {x: 6.648489, y: -0.52237356, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1922771068
 BoxCollider2D:
@@ -30235,7 +30691,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.50873035}
@@ -30251,6 +30707,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.625, y: 1.0174607}
   m_EdgeRadius: 0
+--- !u!114 &1922771069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922771065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
 --- !u!1 &1953937356
 GameObject:
   m_ObjectHideFlags: 0
@@ -30950,6 +31419,7 @@ GameObject:
   - component: {fileID: 2077870999}
   - component: {fileID: 2077870998}
   - component: {fileID: 2077871000}
+  - component: {fileID: 2077871001}
   m_Layer: 0
   m_Name: TX Village Props Spear (4)
   m_TagString: Untagged
@@ -31016,11 +31486,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077870997}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.2926598, y: 8.932636, z: 957.5802}
+  m_LocalPosition: {x: 3.2926598, y: 8.932636, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &2077871000
 BoxCollider2D:
@@ -31032,7 +31502,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -31048,6 +31518,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.90625, y: 0.15625}
   m_EdgeRadius: 0
+--- !u!114 &2077871001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077870997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &2084937590
 GameObject:
   m_ObjectHideFlags: 0
@@ -31551,6 +32034,7 @@ GameObject:
   - component: {fileID: 2118328042}
   - component: {fileID: 2118328041}
   - component: {fileID: 2118328043}
+  - component: {fileID: 2118328044}
   m_Layer: 0
   m_Name: Spikes (1)
   m_TagString: Untagged
@@ -31617,7 +32101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118328040}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 33.82866, y: -1.0683638, z: 957.5802}
+  m_LocalPosition: {x: 33.82866, y: -1.0683638, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404344219}
@@ -31633,7 +32117,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -31649,6 +32133,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.96875, y: 0.99375}
   m_EdgeRadius: 0
+--- !u!114 &2118328044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118328040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d8adfcaa5de446af6583f08f3ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &2119125569
 GameObject:
   m_ObjectHideFlags: 0

@@ -233,7 +233,7 @@ public class Hero : Entity
 	private void Respawn()
    {
         this.gameObject.SetActive(true);		
-		hp = FullHP;		
+		if (hp <= 0) hp = FullHP;		
 		transform.position = CheckPoint.position;						
 		NotDie = true;
    }
@@ -247,7 +247,7 @@ public class Hero : Entity
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag == "Border") {Die(); Invoke("Respawn", 3.1f);}
+		if (other.gameObject.tag == "Border") {GetDamage(5); Die(); Invoke("Respawn", 3.1f);}
 	}
 		
 }
