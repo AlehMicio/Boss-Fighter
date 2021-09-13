@@ -8,8 +8,7 @@ public class FireGolem: Entity
     [SerializeField] private int hp;		 	
 	[SerializeField] private Transform point;	
 	[SerializeField] private LayerMask PlayerLayer;
-	[SerializeField] private LayerMask GroundLayer;
-	[SerializeField] private Text txt;						
+	[SerializeField] private LayerMask GroundLayer;							
 
 	private float speed;
 	private float damageFireGolem1 = 2;
@@ -99,15 +98,13 @@ public class FireGolem: Entity
 		speed = 0;
 		anim.SetBool("isWalk", false);
 		anim.SetBool("isRun", false);		
-		sprite.flipX = true;
-		txt.text = "Пока на расслабоне, на чиле";
+		sprite.flipX = true;		
 	}
 
 	private void Agr()
 	{
 		speed = 4;		
-		anim.SetBool("isRun", true);
-		txt.text = "Ща захуярю";				
+		anim.SetBool("isRun", true);						
 		transform.position = Vector2.MoveTowards(transform.position, player.position, speed*Time.deltaTime);
 		if (transform.position.x > player.position.x) sprite.flipX = true; else sprite.flipX = false;		
 	}
@@ -115,8 +112,7 @@ public class FireGolem: Entity
 	private void GoBack()
 	{
 		speed = 4;
-		anim.SetBool("isWalk", true);
-		txt.text = "На базу";
+		anim.SetBool("isWalk", true);		
 		transform.position = Vector2.MoveTowards(transform.position, point.position, speed*Time.deltaTime);
 		if (transform.position.x >= point.position.x) sprite.flipX = true; else sprite.flipX = false;
 	}
@@ -134,8 +130,7 @@ public class FireGolem: Entity
 	{
 		if (cdKick <= 0)
 		{			
-			anim.SetTrigger("isKick");
-			txt.text = "Пинаю!";
+			anim.SetTrigger("isKick");			
 			speed = 0;
 			Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
 			for (int i = 0; i<enemies.Length; i++)
@@ -147,8 +142,7 @@ public class FireGolem: Entity
 		else
 		{
 			cdKick -= 1;
-			anim.SetTrigger("isAttack");
-			txt.text = "Атакую!";				
+			anim.SetTrigger("isAttack");							
 			cd = true;			
 			StartCoroutine(AttackCoolDown());
 		}		
@@ -160,7 +154,7 @@ public class FireGolem: Entity
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
 		for (int i = 0; i<enemies.Length; i++)
 		{
-			enemies[i].GetComponent<Hero>().GetDamage(damageFireGolem1); //Hero - a name of script;
+			enemies[i].GetComponent<Hero>().GetDamage(damageFireGolem1);
 		}
 	}
 
@@ -196,8 +190,7 @@ public class FireGolem: Entity
 
 	private void WhenDie()
 	{
-		NotDie = false;
-		txt.text = "";
+		NotDie = false;		
 		anim.SetTrigger("isDie");		
 		Invoke("Die",3);
 		//Invoke("Respawn",60);		

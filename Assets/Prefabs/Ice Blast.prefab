@@ -92,8 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9049466872567879216}
   - component: {fileID: 9049466872567879217}
-  - component: {fileID: 8948210722564570433}
   - component: {fileID: 5989913108038801072}
+  - component: {fileID: 8948210722564570433}
   m_Layer: 0
   m_Name: Ice Blast
   m_TagString: Untagged
@@ -132,19 +132,6 @@ CircleCollider2D:
   m_Offset: {x: 0.000054836273, y: -0.061984062}
   serializedVersion: 2
   m_Radius: 0.44928503
---- !u!114 &8948210722564570433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9049466872567879219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ba63fe3f3f178d4ba9683dcfa9b6a4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
 --- !u!50 &5989913108038801072
 Rigidbody2D:
   serializedVersion: 4
@@ -166,3 +153,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8948210722564570433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9049466872567879219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba63fe3f3f178d4ba9683dcfa9b6a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

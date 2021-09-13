@@ -813,7 +813,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506317237388249911}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.21, y: -4.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -877,6 +877,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   jinnBlast: {fileID: 2018888039750519692, guid: f848950f7e8aea04e99b8420e568c947, type: 3}
-  txt: {fileID: 1506317235993723259}
   capsul: {fileID: 1506317237388249909}
   Pb: {fileID: 49315363024029135}

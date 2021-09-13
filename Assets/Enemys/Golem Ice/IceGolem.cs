@@ -8,8 +8,7 @@ public class IceGolem: Entity
     [SerializeField] private int hp;		 	
 	[SerializeField] private Transform point;	
 	[SerializeField] private LayerMask PlayerLayer;
-	[SerializeField] private LayerMask GroundLayer;
-	[SerializeField] private Text txt;						
+	[SerializeField] private LayerMask GroundLayer;							
 
 	private float speed;
 	private float damageIceGolem1 = 2;		
@@ -20,7 +19,7 @@ public class IceGolem: Entity
 	private float cdFire;
 	private float RayDistToGround = 1.5f;		
 	private int FullHP;	
-	private Transform player;		
+	private Transform player;			
 
 	private bool NotDie = true;	
 	private bool cd;
@@ -50,7 +49,7 @@ public class IceGolem: Entity
 	{
 		rb = GetComponent<Rigidbody2D>();
 		sprite = GetComponentInChildren<SpriteRenderer>();
-		anim = GetComponent<Animator>();		
+		anim = GetComponent<Animator>();			
 		
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		FullHP = hp;
@@ -102,15 +101,13 @@ public class IceGolem: Entity
 		speed = 0;
 		anim.SetBool("isWalk", false);
 		anim.SetBool("isRun", false);		
-		sprite.flipX = true;
-		txt.text = "Пока на расслабоне, на чиле";
+		sprite.flipX = true;		
 	}
 
 	private void Agr()
 	{
 		speed = 4;		
-		anim.SetBool("isRun", true);
-		txt.text = "Ща захуярю";				
+		anim.SetBool("isRun", true);						
 		transform.position = Vector2.MoveTowards(transform.position, player.position, speed*Time.deltaTime);
 		if (transform.position.x > player.position.x) sprite.flipX = true; else sprite.flipX = false;		
 	}
@@ -118,8 +115,7 @@ public class IceGolem: Entity
 	private void GoBack()
 	{
 		speed = 4;
-		anim.SetBool("isWalk", true);
-		txt.text = "На базу";
+		anim.SetBool("isWalk", true);		
 		transform.position = Vector2.MoveTowards(transform.position, point.position, speed*Time.deltaTime);
 		if (transform.position.x >= point.position.x) sprite.flipX = true; else sprite.flipX = false;
 	}
@@ -135,8 +131,7 @@ public class IceGolem: Entity
 
 	private void Attack()
 	{
-		anim.SetTrigger("isAttack");
-		txt.text = "Атакую!";				
+		anim.SetTrigger("isAttack");					
 		cd = true;			
 		StartCoroutine(AttackCoolDown());				
 	}
@@ -147,7 +142,7 @@ public class IceGolem: Entity
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
 		for (int i = 0; i<enemies.Length; i++)
 		{
-			enemies[i].GetComponent<Hero>().GetDamage(damageIceGolem1); //Hero - a name of script;
+			enemies[i].GetComponent<Hero>().GetDamage(damageIceGolem1); 
 		}
 	}
 
@@ -161,7 +156,6 @@ public class IceGolem: Entity
 	{
 		if (cdFire <= 0)
 		{
-			txt.text = "Стреляю!";
 			speed = 0;
 			Instantiate(iceBlast, transform.position, transform.rotation);
 			cdFire = 0.3f;
@@ -202,8 +196,7 @@ public class IceGolem: Entity
 
 	private void WhenDie()
 	{
-		NotDie = false;
-		txt.text = "";
+		NotDie = false;		
 		anim.SetTrigger("isDie");		
 		Invoke("Die",3);
 		//Invoke("Respawn",6);		

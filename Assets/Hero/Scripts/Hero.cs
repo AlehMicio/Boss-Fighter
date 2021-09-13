@@ -16,14 +16,16 @@ public class Hero : Entity
 	private int damageHero2 = 3;
 	private float AttackRange = 0.8f;
 	private float jumpForce = 7;
-	private float speed;	
+	private float speed;
+	private float cdFire;	
 	[HideInInspector] public float FullHP;	
 	
 	private bool isGround;
 	private bool isRoof;		
 	private bool NotDie = true;			
-	private bool cd1; //CoolDown
+	private bool cd1; 
 	private bool cd2;
+	[HideInInspector] public bool flipHero;	
 
 	[SerializeField] private Text txt;
 	[SerializeField] private Transform AttackPoint1;
@@ -31,28 +33,32 @@ public class Hero : Entity
 	[SerializeField] private LayerMask EnemyLayer;
 	[SerializeField] private LayerMask GroundLayer;
 	[SerializeField] private CapsuleCollider2D capsul;
-	[SerializeField] private CircleCollider2D circle; 			
+	[SerializeField] private CircleCollider2D circle;
+	[SerializeField] private GameObject heroBlast; 			
 	
 	private Rigidbody2D rb;
 	private RaycastHit2D isCheckGround;
 	private RaycastHit2D isCheckRoof;	
-	private SpriteRenderer sprite;
 	private Animator anim;	
 	private Transform enemy;	
-	public static Hero Instance {get; set;}
+	private SpriteRenderer sprite;	
 	
 	//Программные функции
  	
-	private void Start()
+	private void Awake()
 	{
-		Instance = this;			
 		rb = GetComponent<Rigidbody2D>();
 		sprite = GetComponentInChildren<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 		enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
-
+	}
+	
+	
+	private void Start()
+	{
 		cd1 = false;
 		cd2 = false;
+		cdFire = 0;
 		FullHP = hp;											
 	}
 	
@@ -74,7 +80,10 @@ public class Hero : Entity
 		Jump();
 		Sit();
 		Attack1();
-		Attack2();						
+		Attack2();
+		Fire();
+
+		if (cdFire > 0) cdFire -= Time.deltaTime;						
 	}
 	
 	//Основные функции
@@ -86,7 +95,7 @@ public class Hero : Entity
 			naprX = Input.GetAxis("Horizontal");
 			Vector3 dir = transform.right*naprX;
 			transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed*Time.deltaTime);					
-			sprite.flipX = dir.x < 0.0f;		
+			sprite.flipX = dir.x < 0.0f; flipHero = dir.x < 0.0f;		
 		}
 
 		if (NotDie && isGround && Input.GetButton("Horizontal")) anim.SetBool("isRun", true);
@@ -195,6 +204,15 @@ public class Hero : Entity
 		cd2 = false;
 	}
 
+	private void Fire()
+	{
+		if (cdFire <= 0 && Input.GetButtonDown("Fire3"))
+		{
+			Instantiate(heroBlast, transform.position, transform.rotation);
+			cdFire = 5f;
+		}			
+	}
+
 	//Вспомогательные функции
 
 	private void CheckGround()
@@ -226,8 +244,8 @@ public class Hero : Entity
 		anim.SetTrigger("isDie");
 		NotDie = false;
 		Invoke("Die", 3);
-		//Invoke("ReloadLevel",3);
-		Invoke("Respawn", 3.1f);		
+		Invoke("ReloadLevel",3);
+		//Invoke("Respawn", 3.1f);		
 	}	
 
 	private void Respawn()

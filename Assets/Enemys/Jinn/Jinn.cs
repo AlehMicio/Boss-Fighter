@@ -10,7 +10,6 @@ public class Jinn: Entity
 	[SerializeField] private Transform attackPoint;	
 	[SerializeField] private LayerMask PlayerLayer;							
 	[SerializeField] private GameObject jinnBlast;	
-	[SerializeField] private Text txt;
 	[SerializeField] private CapsuleCollider2D capsul;
 
 	private float cdFire;			
@@ -57,7 +56,6 @@ public class Jinn: Entity
 	{
 		if (cdFire <= 0)
 		{						
-			txt.text = "Я Рембо нах!";
 			anim.SetTrigger("isAttack");			
 			Instantiate(jinnBlast, attackPoint.position, attackPoint.rotation);
 			cdFire = 0.3f;
@@ -81,8 +79,7 @@ public class Jinn: Entity
 
 	private void WhenDie()
 	{
-		NotDie = false;
-		txt.text = "Я был Рембо нах...";		
+		NotDie = false;				
 		anim.SetTrigger("isDeath");		
 		Invoke("Die",2);
 		//Invoke("Respawn",4);

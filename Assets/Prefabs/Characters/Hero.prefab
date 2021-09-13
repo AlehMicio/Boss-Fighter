@@ -156,6 +156,7 @@ MonoBehaviour:
   hp: 50
   CheckPoint: {fileID: 0}
   FullHP: 0
+  flipHero: 0
   txt: {fileID: 0}
   AttackPoint1: {fileID: 3088796917661129973}
   AttackPoint2: {fileID: 1901001454}
@@ -167,6 +168,7 @@ MonoBehaviour:
     m_Bits: 64
   capsul: {fileID: 3088796915963127735}
   circle: {fileID: 387814230}
+  heroBlast: {fileID: 225814211163715246, guid: 2fb339380cfbd454cbc799e7fffcb4cd, type: 3}
 --- !u!1 &3088796916002220852
 GameObject:
   m_ObjectHideFlags: 0

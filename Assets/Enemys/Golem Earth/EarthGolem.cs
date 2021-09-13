@@ -10,8 +10,7 @@ public class EarthGolem: Entity
 	[SerializeField] private Transform RazgonPoint;
 	[SerializeField] private PointForRazgon RP;
 	[SerializeField] private LayerMask PlayerLayer;
-	[SerializeField] private LayerMask GroundLayer;
-	[SerializeField] private Text txt;						
+	[SerializeField] private LayerMask GroundLayer;							
 
 	private float speed;
 	private float damageEarthGolem1 = 1;
@@ -106,15 +105,13 @@ public class EarthGolem: Entity
 		speed = 0;
 		anim.SetBool("isWalk", false);
 		anim.SetBool("isRun", false);		
-		sprite.flipX = true;
-		txt.text = "Пока на расслабоне, на чиле";
+		sprite.flipX = true;		
 	}
 
 	private void Agr()
 	{
 		speed = 4;		
-		anim.SetBool("isRun", true);
-		txt.text = "Ща захуярю";				
+		anim.SetBool("isRun", true);						
 		transform.position = Vector2.MoveTowards(transform.position, player.position, speed*Time.deltaTime);
 		if (transform.position.x > player.position.x) sprite.flipX = true; else sprite.flipX = false;		
 	}
@@ -122,8 +119,7 @@ public class EarthGolem: Entity
 	private void GoBack()
 	{
 		speed = 8;
-		anim.SetBool("isWalk", true);
-		txt.text = "На базу";
+		anim.SetBool("isWalk", true);		
 		transform.position = Vector2.MoveTowards(transform.position, point.position, speed*Time.deltaTime);
 		if (transform.position.x >= point.position.x) sprite.flipX = true; else sprite.flipX = false;
 	}
@@ -139,8 +135,7 @@ public class EarthGolem: Entity
 
 	private void Attack()
 	{
-		anim.SetTrigger("isAttack");
-		txt.text = "Атакую!";				
+		anim.SetTrigger("isAttack");						
 		cd = true;			
 		StartCoroutine(AttackCoolDown());				
 	}
@@ -163,8 +158,7 @@ public class EarthGolem: Entity
 
 	private void Razgon()
 	{				
-		anim.SetTrigger("isRazgon");
-		txt.text = "УУУУУУУУУУУУУУУ!";
+		anim.SetTrigger("isRazgon");		
 		speed = 20;
 		transform.position = Vector2.MoveTowards(transform.position, RazgonPoint.position, speed*Time.deltaTime);					
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, PlayerLayer);
@@ -200,8 +194,7 @@ public class EarthGolem: Entity
 
 	private void WhenDie()
 	{
-		NotDie = false;
-		txt.text = "";
+		NotDie = false;	
 		anim.SetTrigger("isDie");		
 		Invoke("Die",3);
 		//Invoke("Respawn",6);		

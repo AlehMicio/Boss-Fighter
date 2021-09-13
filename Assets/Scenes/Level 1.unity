@@ -1648,7 +1648,6 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
-  txt: {fileID: 1486277412}
   Pb: {fileID: 688044442}
   iceBlast: {fileID: 9049466872567879219, guid: 111f0e03d2d36b94ba3524b6982eb1c9, type: 3}
 --- !u!1 &132911382
@@ -2349,7 +2348,6 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
-  txt: {fileID: 394299847}
   NotDie: 1
   razgon: 0
   Pb: {fileID: 1605739113}
@@ -14151,7 +14149,6 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
-  txt: {fileID: 4824585927536215413}
   Pb: {fileID: 4019275414340801644}
 --- !u!1 &1972078144
 GameObject:
@@ -20832,11 +20829,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127720, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.54
+      value: -10.57
       objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127720, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.94
+      value: -2.05
       objectReference: {fileID: 0}
     - target: {fileID: 3088796915963127720, guid: 88ff2d0b07edaad4ea984d3311aa916b, type: 3}
       propertyPath: m_LocalPosition.z
