@@ -66,7 +66,7 @@ public class Demon : Entity
 	private void Update()
 	{
 		if (hp <= 0 && NotDie) WhenDie();
-		Pb.BarValue = hp*(100/FullHP);
+		Pb.BarValue = hp*(100/FullHP);		
 
 		if (cdJump > 0) cdJump -= Time.deltaTime;
 		if (!isGround) jumpForce = 15; else jumpForce = 7;  	

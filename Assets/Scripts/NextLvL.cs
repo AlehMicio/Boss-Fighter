@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class NextLvL : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D Next)
+    
+	
+	private void OnCollisionEnter2D(Collision2D Next)
 	{
 		if (Next.gameObject.tag == "Player") NextLevel();				
 	}
