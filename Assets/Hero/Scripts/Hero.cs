@@ -71,7 +71,7 @@ public class Hero : Entity
 	private void Update()
 	{
 		if (hp <= 0) WhenDie();
-		Pb.BarValue = hp*(100/FullHP); //Корректровка HP Bar
+		Pb.BarValue = hp*(100/FullHP); //Корректировка HP Bar
 		if (hp <= 0) HPtxt = 0; else HPtxt = hp;
 		txt.text = "HP " + HPtxt; 
 		

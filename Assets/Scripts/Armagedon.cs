@@ -14,6 +14,7 @@ public class Armagedon : Entity
 	[SerializeField] private Transform point7;
 	[SerializeField] private Transform point8;
 	[SerializeField] private Transform point9;
+	private  Transform[] arrayPoints;
 
     [HideInInspector] public bool armagedon;
 	private float cdFire;
@@ -23,114 +24,27 @@ public class Armagedon : Entity
 	{
 		armagedon = false;
 		cdFire = 0;
+		arrayPoints = new Transform[9] {point1, point2, point3, point4, point5, point6, point7, point8, point9};
 	}
 	
 	private void Update()
 	{
 		if (armagedon)
 		{
-			Fire1();
-			Fire2();
-			Fire3();
-			Fire4();
-			Fire5();
-			Fire6();
-			Fire7();
-			Fire8();
-			Fire9();	
+			for (int i = 0; i<9; i++){
+				Fire(arrayPoints[i]);
+			}
 		}
-	}
+	}	
 	
-	
-	private void Fire1()
-	{
+	private void Fire(Transform point){
 		if (cdFire <= 0)
 		{
-			Instantiate(armagedonBlast, point1.position, point1.rotation);
+			Instantiate(armagedonBlast, point.position, point1.rotation);
 			cdFire = 0.3f;
 		}
 		else cdFire -= Time.deltaTime;	
-	}
-	
-	private void Fire2()
-	{
-		if (cdFire <= 0)
-		{
-			Instantiate(armagedonBlast, point2.position, point1.rotation);
-			cdFire = 0.3f;
-		}
-		else cdFire -= Time.deltaTime;	
-	}
-
-	private void Fire3()
-	{
-		if (cdFire <= 0)
-		{
-			Instantiate(armagedonBlast, point3.position, point1.rotation);
-			cdFire = 0.3f;
-		}
-		else cdFire -= Time.deltaTime;	
-	}
-
-	private void Fire4()
-	{
-		if (cdFire <= 0)
-		{
-			Instantiate(armagedonBlast, point4.position, point1.rotation);
-			cdFire = 0.3f;
-		}
-		else cdFire -= Time.deltaTime;	
-	}
-	
-	private void Fire5()
-	{
-		if (cdFire <= 0)
-		{
-			Instantiate(armagedonBlast, point5.position, point1.rotation);
-			cdFire = 0.3f;
-		}
-		else cdFire -= Time.deltaTime;	
-	}
-	
-	private void Fire6()
-	{
-		if (cdFire <= 0)
-		{
-			Instantiate(armagedonBlast, point6.position, point1.rotation);
-			cdFire = 0.3f;
-		}
-		else cdFire -= Time.deltaTime;	
-	}
-
-	private void Fire7()
-	{
-		if (cdFire <= 0)
-		{
-			Instantiate(armagedonBlast, point7.position, point1.rotation);
-			cdFire = 0.3f;
-		}
-		else cdFire -= Time.deltaTime;	
-	}
-
-	private void Fire8()
-	{
-		if (cdFire <= 0)
-		{
-			Instantiate(armagedonBlast, point8.position, point1.rotation);
-			cdFire = 0.3f;
-		}
-		else cdFire -= Time.deltaTime;	
-	}
-
-	private void Fire9()
-	{
-		if (cdFire <= 0)
-		{
-			Instantiate(armagedonBlast, point9.position, point1.rotation);
-			cdFire = 0.3f;
-		}
-		else cdFire -= Time.deltaTime;	
-	}
+	}	
 	
 	private void OnTriggerEnter2D(Collider2D other)
 	{
